@@ -1,0 +1,8 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+  <Dialog id="myDialog" title="Click On Save" draggable="true">
+    <content>
+      <!-- Add your content here -->
+      <Text id="text" text=" Click on Save Button to save Records." />
+    </content>
+  </Dialog>
+</core:FragmentDefinition>

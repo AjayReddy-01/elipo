@@ -1,0 +1,1477 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+    <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Capabilities.V1.xml">
+        <edmx:Include Alias="Capabilities" Namespace="Org.OData.Capabilities.V1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+        <edmx:Include Alias="Common" Namespace="com.sap.vocabularies.Common.v1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+        <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml">
+        <edmx:Include Alias="UI" Namespace="com.sap.vocabularies.UI.v1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Validation.V1.xml">
+        <edmx:Include Alias="Validation" Namespace="Org.OData.Validation.V1"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema Namespace="ApplicationService" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+            <EntityContainer Name="EntityContainer">
+                <Singleton Name="UploadXl" Type="ApplicationService.UploadXl"/>
+                <EntitySet Name="Members" EntityType="ApplicationService.Members">
+                    <NavigationPropertyBinding Path="SiblingEntity" Target="Members"/>
+                </EntitySet>
+                <EntitySet Name="Company_code" EntityType="ApplicationService.Company_code">
+                    <NavigationPropertyBinding Path="SiblingEntity" Target="Company_code"/>
+                </EntitySet>
+                <EntitySet Name="Cost_center" EntityType="ApplicationService.Cost_center">
+                    <NavigationPropertyBinding Path="SiblingEntity" Target="Cost_center"/>
+                </EntitySet>
+                <EntitySet Name="Jurisdiction_code" EntityType="ApplicationService.Jurisdiction_code">
+                    <NavigationPropertyBinding Path="SiblingEntity" Target="Jurisdiction_code"/>
+                </EntitySet>
+                <EntitySet Name="list" EntityType="ApplicationService.list"/>
+                <EntitySet Name="Department" EntityType="ApplicationService.Department">
+                    <NavigationPropertyBinding Path="SiblingEntity" Target="Department"/>
+                </EntitySet>
+                <EntitySet Name="Master" EntityType="ApplicationService.Master"/>
+                <EntitySet Name="Unit_Measures" EntityType="ApplicationService.Unit_Measures">
+                    <NavigationPropertyBinding Path="SiblingEntity" Target="Unit_Measures"/>
+                </EntitySet>
+                <EntitySet Name="G_L_Account" EntityType="ApplicationService.G_L_Account">
+                    <NavigationPropertyBinding Path="SiblingEntity" Target="G_L_Account"/>
+                </EntitySet>
+                <EntitySet Name="Dept_budget" EntityType="ApplicationService.Dept_budget">
+                    <NavigationPropertyBinding Path="SiblingEntity" Target="Dept_budget"/>
+                </EntitySet>
+                <EntitySet Name="Percent" EntityType="ApplicationService.Percent"/>
+                <EntitySet Name="Default_master" EntityType="ApplicationService.Default_master">
+                    <NavigationPropertyBinding Path="SiblingEntity" Target="Default_master"/>
+                </EntitySet>
+                <EntitySet Name="Roles" EntityType="ApplicationService.Roles"/>
+                <EntitySet Name="Internal_order" EntityType="ApplicationService.Internal_order">
+                    <NavigationPropertyBinding Path="SiblingEntity" Target="Internal_order"/>
+                </EntitySet>
+                <EntitySet Name="Item_category" EntityType="ApplicationService.Item_category">
+                    <NavigationPropertyBinding Path="SiblingEntity" Target="Item_category"/>
+                </EntitySet>
+                <EntitySet Name="Material_master" EntityType="ApplicationService.Material_master">
+                    <NavigationPropertyBinding Path="SiblingEntity" Target="Material_master"/>
+                </EntitySet>
+                <EntitySet Name="Plant" EntityType="ApplicationService.Plant">
+                    <NavigationPropertyBinding Path="SiblingEntity" Target="Plant"/>
+                </EntitySet>
+                <EntitySet Name="Tax_code" EntityType="ApplicationService.Tax_code">
+                    <NavigationPropertyBinding Path="SiblingEntity" Target="Tax_code"/>
+                </EntitySet>
+                <EntitySet Name="Vendor_master" EntityType="ApplicationService.Vendor_master">
+                    <NavigationPropertyBinding Path="SiblingEntity" Target="Vendor_master"/>
+                </EntitySet>
+                <EntitySet Name="Currency" EntityType="ApplicationService.Currency">
+                    <NavigationPropertyBinding Path="SiblingEntity" Target="Currency"/>
+                </EntitySet>
+                <EntitySet Name="Document_type" EntityType="ApplicationService.Document_type">
+                    <NavigationPropertyBinding Path="SiblingEntity" Target="Document_type"/>
+                </EntitySet>
+                <EntitySet Name="Country" EntityType="ApplicationService.Country"/>
+                <EntitySet Name="Payment_method" EntityType="ApplicationService.Payment_method"/>
+                <EntitySet Name="Vendor_gst" EntityType="ApplicationService.Vendor_gst">
+                    <NavigationPropertyBinding Path="SiblingEntity" Target="Vendor_gst"/>
+                </EntitySet>
+                <EntitySet Name="Vendor_gst_treatment" EntityType="ApplicationService.Vendor_gst_treatment">
+                    <NavigationPropertyBinding Path="SiblingEntity" Target="Vendor_gst_treatment"/>
+                </EntitySet>
+                <EntitySet Name="Vendor_payment_terms" EntityType="ApplicationService.Vendor_payment_terms">
+                    <NavigationPropertyBinding Path="SiblingEntity" Target="Vendor_payment_terms"/>
+                </EntitySet>
+                <EntitySet Name="Vendor_tds" EntityType="ApplicationService.Vendor_tds">
+                    <NavigationPropertyBinding Path="SiblingEntity" Target="Vendor_tds"/>
+                </EntitySet>
+                <ActionImport Name="save_Comp_code" Action="ApplicationService.save_Comp_code"/>
+                <ActionImport Name="save_Currency" Action="ApplicationService.save_Currency"/>
+                <ActionImport Name="save_plant" Action="ApplicationService.save_plant"/>
+                <ActionImport Name="save_C_center" Action="ApplicationService.save_C_center"/>
+                <ActionImport Name="save_GL_Account" Action="ApplicationService.save_GL_Account"/>
+                <ActionImport Name="save_Int_order" Action="ApplicationService.save_Int_order"/>
+                <ActionImport Name="save_Tax_code" Action="ApplicationService.save_Tax_code"/>
+                <ActionImport Name="save_UOM" Action="ApplicationService.save_UOM"/>
+                <ActionImport Name="save_jcode" Action="ApplicationService.save_jcode"/>
+                <ActionImport Name="save_D_master" Action="ApplicationService.save_D_master"/>
+                <ActionImport Name="save_dept" Action="ApplicationService.save_dept"/>
+                <ActionImport Name="save_Dept_budget" Action="ApplicationService.save_Dept_budget"/>
+                <ActionImport Name="save_M_master" Action="ApplicationService.save_M_master"/>
+                <ActionImport Name="save_Item_category" Action="ApplicationService.save_Item_category"/>
+                <ActionImport Name="save_v_master" Action="ApplicationService.save_v_master"/>
+            </EntityContainer>
+            <EntityType Name="UploadXl">
+                <Property Name="excel" Type="Edm.Stream"/>
+            </EntityType>
+            <EntityType Name="Members">
+                <Key>
+                    <PropertyRef Name="member_id"/>
+                    <PropertyRef Name="IsActiveEntity"/>
+                </Key>
+                <Property Name="email" Type="Edm.String" MaxLength="100"/>
+                <Property Name="member_id" Type="Edm.String" MaxLength="15" Nullable="false"/>
+                <Property Name="group_id" Type="Edm.Int32"/>
+                <Property Name="member_name" Type="Edm.String" MaxLength="100"/>
+                <Property Name="position" Type="Edm.String" MaxLength="100"/>
+                <Property Name="p_image" Type="Edm.String"/>
+                <Property Name="IsActiveEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="true"/>
+                <Property Name="HasActiveEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="false"/>
+                <Property Name="HasDraftEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="false"/>
+                <NavigationProperty Name="DraftAdministrativeData" Type="ApplicationService.DraftAdministrativeData" ContainsTarget="true"/>
+                <NavigationProperty Name="SiblingEntity" Type="ApplicationService.Members"/>
+            </EntityType>
+            <EntityType Name="Company_code">
+                <Key>
+                    <PropertyRef Name="code"/>
+                    <PropertyRef Name="IsActiveEntity"/>
+                </Key>
+                <Property Name="code" Type="Edm.String" MaxLength="10" Nullable="false"/>
+                <Property Name="description" Type="Edm.String" MaxLength="100"/>
+                <Property Name="tax_treatment" Type="Edm.String" MaxLength="10"/>
+                <Property Name="IsActiveEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="true"/>
+                <Property Name="HasActiveEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="false"/>
+                <Property Name="HasDraftEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="false"/>
+                <NavigationProperty Name="DraftAdministrativeData" Type="ApplicationService.DraftAdministrativeData" ContainsTarget="true"/>
+                <NavigationProperty Name="SiblingEntity" Type="ApplicationService.Company_code"/>
+            </EntityType>
+            <EntityType Name="Cost_center">
+                <Key>
+                    <PropertyRef Name="code"/>
+                    <PropertyRef Name="IsActiveEntity"/>
+                </Key>
+                <Property Name="code" Type="Edm.String" MaxLength="10" Nullable="false"/>
+                <Property Name="description" Type="Edm.String" MaxLength="100"/>
+                <Property Name="master_name" Type="Edm.String" MaxLength="30"/>
+                <Property Name="IsActiveEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="true"/>
+                <Property Name="HasActiveEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="false"/>
+                <Property Name="HasDraftEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="false"/>
+                <NavigationProperty Name="DraftAdministrativeData" Type="ApplicationService.DraftAdministrativeData" ContainsTarget="true"/>
+                <NavigationProperty Name="SiblingEntity" Type="ApplicationService.Cost_center"/>
+            </EntityType>
+            <EntityType Name="Jurisdiction_code">
+                <Key>
+                    <PropertyRef Name="code"/>
+                    <PropertyRef Name="IsActiveEntity"/>
+                </Key>
+                <Property Name="code" Type="Edm.String" MaxLength="10" Nullable="false"/>
+                <Property Name="description" Type="Edm.String" MaxLength="100"/>
+                <Property Name="master_id" Type="Edm.Int32"/>
+                <Property Name="IsActiveEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="true"/>
+                <Property Name="HasActiveEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="false"/>
+                <Property Name="HasDraftEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="false"/>
+                <NavigationProperty Name="DraftAdministrativeData" Type="ApplicationService.DraftAdministrativeData" ContainsTarget="true"/>
+                <NavigationProperty Name="SiblingEntity" Type="ApplicationService.Jurisdiction_code"/>
+            </EntityType>
+            <EntityType Name="list">
+                <Property Name="code" Type="Edm.String" MaxLength="10"/>
+                <Property Name="description" Type="Edm.String" MaxLength="100"/>
+            </EntityType>
+            <EntityType Name="Department">
+                <Key>
+                    <PropertyRef Name="sr_no"/>
+                    <PropertyRef Name="IsActiveEntity"/>
+                </Key>
+                <Property Name="cost_center" Type="Edm.String" MaxLength="10"/>
+                <Property Name="default_master_check" Type="Edm.String" MaxLength="1"/>
+                <Property Name="department_id" Type="Edm.Int32"/>
+                <Property Name="department_name" Type="Edm.String" MaxLength="10"/>
+                <Property Name="email" Type="Edm.String" MaxLength="30"/>
+                <Property Name="gl_account" Type="Edm.String" MaxLength="30"/>
+                <Property Name="internal_order" Type="Edm.String" MaxLength="30"/>
+                <Property Name="member_id" Type="Edm.String" MaxLength="12"/>
+                <Property Name="member_name" Type="Edm.String" MaxLength="30"/>
+                <Property Name="sr_no" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="IsActiveEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="true"/>
+                <Property Name="HasActiveEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="false"/>
+                <Property Name="HasDraftEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="false"/>
+                <NavigationProperty Name="DraftAdministrativeData" Type="ApplicationService.DraftAdministrativeData" ContainsTarget="true"/>
+                <NavigationProperty Name="SiblingEntity" Type="ApplicationService.Department"/>
+            </EntityType>
+            <EntityType Name="Master">
+                <Key>
+                    <PropertyRef Name="table_key"/>
+                </Key>
+                <Property Name="drop_key" Type="Edm.String"/>
+                <Property Name="table_key" Type="Edm.String" MaxLength="10" Nullable="false"/>
+                <Property Name="table_name" Type="Edm.String" MaxLength="30"/>
+            </EntityType>
+            <EntityType Name="Unit_Measures">
+                <Key>
+                    <PropertyRef Name="code"/>
+                    <PropertyRef Name="IsActiveEntity"/>
+                </Key>
+                <Property Name="code" Type="Edm.String" MaxLength="10" Nullable="false"/>
+                <Property Name="description" Type="Edm.String" MaxLength="100"/>
+                <Property Name="master_name" Type="Edm.String" MaxLength="30"/>
+                <Property Name="IsActiveEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="true"/>
+                <Property Name="HasActiveEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="false"/>
+                <Property Name="HasDraftEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="false"/>
+                <NavigationProperty Name="DraftAdministrativeData" Type="ApplicationService.DraftAdministrativeData" ContainsTarget="true"/>
+                <NavigationProperty Name="SiblingEntity" Type="ApplicationService.Unit_Measures"/>
+            </EntityType>
+            <EntityType Name="G_L_Account">
+                <Key>
+                    <PropertyRef Name="code"/>
+                    <PropertyRef Name="IsActiveEntity"/>
+                </Key>
+                <Property Name="code" Type="Edm.String" MaxLength="10" Nullable="false"/>
+                <Property Name="description" Type="Edm.String" MaxLength="100"/>
+                <Property Name="master_name" Type="Edm.String" MaxLength="30"/>
+                <Property Name="IsActiveEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="true"/>
+                <Property Name="HasActiveEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="false"/>
+                <Property Name="HasDraftEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="false"/>
+                <NavigationProperty Name="DraftAdministrativeData" Type="ApplicationService.DraftAdministrativeData" ContainsTarget="true"/>
+                <NavigationProperty Name="SiblingEntity" Type="ApplicationService.G_L_Account"/>
+            </EntityType>
+            <EntityType Name="Dept_budget">
+                <Key>
+                    <PropertyRef Name="department_id"/>
+                    <PropertyRef Name="IsActiveEntity"/>
+                </Key>
+                <Property Name="budget" Type="Edm.Int32"/>
+                <Property Name="department_id" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="department_name" Type="Edm.String" MaxLength="30"/>
+                <Property Name="limit_per" Type="Edm.Int32"/>
+                <Property Name="valid_from" Type="Edm.Date"/>
+                <Property Name="valid_to" Type="Edm.Date"/>
+                <Property Name="warning_per" Type="Edm.Int32"/>
+                <Property Name="IsActiveEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="true"/>
+                <Property Name="HasActiveEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="false"/>
+                <Property Name="HasDraftEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="false"/>
+                <NavigationProperty Name="DraftAdministrativeData" Type="ApplicationService.DraftAdministrativeData" ContainsTarget="true"/>
+                <NavigationProperty Name="SiblingEntity" Type="ApplicationService.Dept_budget"/>
+            </EntityType>
+            <EntityType Name="Percent">
+                <Key>
+                    <PropertyRef Name="per"/>
+                </Key>
+                <Property Name="per" Type="Edm.Int32" Nullable="false"/>
+            </EntityType>
+            <EntityType Name="Default_master">
+                <Key>
+                    <PropertyRef Name="company_code"/>
+                    <PropertyRef Name="IsActiveEntity"/>
+                </Key>
+                <Property Name="company_code" Type="Edm.String" MaxLength="30" Nullable="false"/>
+                <Property Name="country" Type="Edm.String" MaxLength="30"/>
+                <Property Name="currency" Type="Edm.String" MaxLength="30"/>
+                <Property Name="document_type" Type="Edm.String" MaxLength="30"/>
+                <Property Name="gl_account_header" Type="Edm.String" MaxLength="30"/>
+                <Property Name="payment_method" Type="Edm.String" MaxLength="30"/>
+                <Property Name="plant" Type="Edm.String" MaxLength="30"/>
+                <Property Name="supplier_id" Type="Edm.String" MaxLength="30"/>
+                <Property Name="tax_per" Type="Edm.String" MaxLength="50"/>
+                <Property Name="tds_per" Type="Edm.String" MaxLength="60"/>
+                <Property Name="IsActiveEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="true"/>
+                <Property Name="HasActiveEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="false"/>
+                <Property Name="HasDraftEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="false"/>
+                <NavigationProperty Name="DraftAdministrativeData" Type="ApplicationService.DraftAdministrativeData" ContainsTarget="true"/>
+                <NavigationProperty Name="SiblingEntity" Type="ApplicationService.Default_master"/>
+            </EntityType>
+            <EntityType Name="Roles">
+                <Key>
+                    <PropertyRef Name="table_key"/>
+                </Key>
+                <Property Name="drop_key" Type="Edm.String" MaxLength="30"/>
+                <Property Name="table_key" Type="Edm.String" MaxLength="30" Nullable="false"/>
+                <Property Name="value2" Type="Edm.String" MaxLength="30"/>
+            </EntityType>
+            <EntityType Name="Internal_order">
+                <Key>
+                    <PropertyRef Name="code"/>
+                    <PropertyRef Name="IsActiveEntity"/>
+                </Key>
+                <Property Name="code" Type="Edm.String" MaxLength="10" Nullable="false"/>
+                <Property Name="description" Type="Edm.String" MaxLength="30"/>
+                <Property Name="master_id" Type="Edm.Int32"/>
+                <Property Name="master_name" Type="Edm.String" MaxLength="30"/>
+                <Property Name="IsActiveEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="true"/>
+                <Property Name="HasActiveEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="false"/>
+                <Property Name="HasDraftEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="false"/>
+                <NavigationProperty Name="DraftAdministrativeData" Type="ApplicationService.DraftAdministrativeData" ContainsTarget="true"/>
+                <NavigationProperty Name="SiblingEntity" Type="ApplicationService.Internal_order"/>
+            </EntityType>
+            <EntityType Name="Item_category">
+                <Key>
+                    <PropertyRef Name="code"/>
+                    <PropertyRef Name="IsActiveEntity"/>
+                </Key>
+                <Property Name="code" Type="Edm.String" MaxLength="10" Nullable="false"/>
+                <Property Name="description" Type="Edm.String" MaxLength="30"/>
+                <Property Name="master_id" Type="Edm.Int32"/>
+                <Property Name="master_name" Type="Edm.String" MaxLength="30"/>
+                <Property Name="IsActiveEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="true"/>
+                <Property Name="HasActiveEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="false"/>
+                <Property Name="HasDraftEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="false"/>
+                <NavigationProperty Name="DraftAdministrativeData" Type="ApplicationService.DraftAdministrativeData" ContainsTarget="true"/>
+                <NavigationProperty Name="SiblingEntity" Type="ApplicationService.Item_category"/>
+            </EntityType>
+            <EntityType Name="Material_master">
+                <Key>
+                    <PropertyRef Name="material_no"/>
+                    <PropertyRef Name="IsActiveEntity"/>
+                </Key>
+                <Property Name="gl_account" Type="Edm.String" MaxLength="30"/>
+                <Property Name="gst_per" Type="Edm.String"/>
+                <Property Name="hsn_code" Type="Edm.String" MaxLength="30"/>
+                <Property Name="material_name" Type="Edm.String" MaxLength="30"/>
+                <Property Name="material_no" Type="Edm.String" MaxLength="30" Nullable="false"/>
+                <Property Name="unit_price" Type="Edm.String" MaxLength="30"/>
+                <Property Name="uom" Type="Edm.String" MaxLength="30"/>
+                <Property Name="uom_description" Type="Edm.String" MaxLength="30"/>
+                <Property Name="IsActiveEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="true"/>
+                <Property Name="HasActiveEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="false"/>
+                <Property Name="HasDraftEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="false"/>
+                <NavigationProperty Name="DraftAdministrativeData" Type="ApplicationService.DraftAdministrativeData" ContainsTarget="true"/>
+                <NavigationProperty Name="SiblingEntity" Type="ApplicationService.Material_master"/>
+            </EntityType>
+            <EntityType Name="Plant">
+                <Key>
+                    <PropertyRef Name="code"/>
+                    <PropertyRef Name="IsActiveEntity"/>
+                </Key>
+                <Property Name="code" Type="Edm.String" MaxLength="10" Nullable="false"/>
+                <Property Name="description" Type="Edm.String" MaxLength="100"/>
+                <Property Name="master_name" Type="Edm.String" MaxLength="30"/>
+                <Property Name="IsActiveEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="true"/>
+                <Property Name="HasActiveEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="false"/>
+                <Property Name="HasDraftEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="false"/>
+                <NavigationProperty Name="DraftAdministrativeData" Type="ApplicationService.DraftAdministrativeData" ContainsTarget="true"/>
+                <NavigationProperty Name="SiblingEntity" Type="ApplicationService.Plant"/>
+            </EntityType>
+            <EntityType Name="Tax_code">
+                <Key>
+                    <PropertyRef Name="company_code"/>
+                    <PropertyRef Name="tax_code"/>
+                    <PropertyRef Name="IsActiveEntity"/>
+                </Key>
+                <Property Name="company_code" Type="Edm.String" MaxLength="30" Nullable="false"/>
+                <Property Name="country" Type="Edm.String" MaxLength="30"/>
+                <Property Name="description" Type="Edm.String" MaxLength="30"/>
+                <Property Name="tax_code" Type="Edm.String" MaxLength="30" Nullable="false"/>
+                <Property Name="tax_per" Type="Edm.Int32"/>
+                <Property Name="IsActiveEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="true"/>
+                <Property Name="HasActiveEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="false"/>
+                <Property Name="HasDraftEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="false"/>
+                <NavigationProperty Name="DraftAdministrativeData" Type="ApplicationService.DraftAdministrativeData" ContainsTarget="true"/>
+                <NavigationProperty Name="SiblingEntity" Type="ApplicationService.Tax_code"/>
+            </EntityType>
+            <EntityType Name="Vendor_master">
+                <Key>
+                    <PropertyRef Name="vendor_no"/>
+                    <PropertyRef Name="IsActiveEntity"/>
+                </Key>
+                <Property Name="currency" Type="Edm.String" MaxLength="3"/>
+                <Property Name="email" Type="Edm.String" MaxLength="30"/>
+                <Property Name="gst_per" Type="Edm.String" MaxLength="30"/>
+                <Property Name="gst_treatment" Type="Edm.String" MaxLength="30"/>
+                <Property Name="gstin_uin" Type="Edm.String" MaxLength="30"/>
+                <Property Name="international_code" Type="Edm.String" MaxLength="30"/>
+                <Property Name="jurisdiction_code" Type="Edm.String" MaxLength="30"/>
+                <Property Name="member_id" Type="Edm.String" MaxLength="15"/>
+                <Property Name="member_name" Type="Edm.String" MaxLength="30"/>
+                <Property Name="pan" Type="Edm.String" MaxLength="30"/>
+                <Property Name="payment_terms" Type="Edm.String" MaxLength="30"/>
+                <Property Name="source_of_supply" Type="Edm.String" MaxLength="30"/>
+                <Property Name="email1" Type="Edm.String" MaxLength="30"/>
+                <Property Name="email2" Type="Edm.String" MaxLength="30"/>
+                <Property Name="email3" Type="Edm.String" MaxLength="30"/>
+                <Property Name="tds" Type="Edm.String" MaxLength="30"/>
+                <Property Name="vendor_name" Type="Edm.String" MaxLength="30"/>
+                <Property Name="vendor_no" Type="Edm.String" MaxLength="30" Nullable="false"/>
+                <Property Name="IsActiveEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="true"/>
+                <Property Name="HasActiveEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="false"/>
+                <Property Name="HasDraftEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="false"/>
+                <NavigationProperty Name="DraftAdministrativeData" Type="ApplicationService.DraftAdministrativeData" ContainsTarget="true"/>
+                <NavigationProperty Name="SiblingEntity" Type="ApplicationService.Vendor_master"/>
+            </EntityType>
+            <EntityType Name="Currency">
+                <Key>
+                    <PropertyRef Name="code"/>
+                    <PropertyRef Name="IsActiveEntity"/>
+                </Key>
+                <Property Name="code" Type="Edm.String" MaxLength="3" Nullable="false"/>
+                <Property Name="description" Type="Edm.String" MaxLength="100"/>
+                <Property Name="master_name" Type="Edm.String" MaxLength="30"/>
+                <Property Name="IsActiveEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="true"/>
+                <Property Name="HasActiveEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="false"/>
+                <Property Name="HasDraftEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="false"/>
+                <NavigationProperty Name="DraftAdministrativeData" Type="ApplicationService.DraftAdministrativeData" ContainsTarget="true"/>
+                <NavigationProperty Name="SiblingEntity" Type="ApplicationService.Currency"/>
+            </EntityType>
+            <EntityType Name="Document_type">
+                <Key>
+                    <PropertyRef Name="code"/>
+                    <PropertyRef Name="IsActiveEntity"/>
+                </Key>
+                <Property Name="code" Type="Edm.String" MaxLength="3" Nullable="false"/>
+                <Property Name="description" Type="Edm.String" MaxLength="100"/>
+                <Property Name="master_name" Type="Edm.String" MaxLength="30"/>
+                <Property Name="IsActiveEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="true"/>
+                <Property Name="HasActiveEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="false"/>
+                <Property Name="HasDraftEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="false"/>
+                <NavigationProperty Name="DraftAdministrativeData" Type="ApplicationService.DraftAdministrativeData" ContainsTarget="true"/>
+                <NavigationProperty Name="SiblingEntity" Type="ApplicationService.Document_type"/>
+            </EntityType>
+            <EntityType Name="Country">
+                <Key>
+                    <PropertyRef Name="table_key"/>
+                </Key>
+                <Property Name="drop_key" Type="Edm.String" MaxLength="100"/>
+                <Property Name="table_key" Type="Edm.String" MaxLength="100" Nullable="false"/>
+                <Property Name="value2" Type="Edm.String" MaxLength="100"/>
+            </EntityType>
+            <EntityType Name="Payment_method">
+                <Key>
+                    <PropertyRef Name="table_key"/>
+                </Key>
+                <Property Name="drop_key" Type="Edm.String" MaxLength="100"/>
+                <Property Name="table_key" Type="Edm.String" MaxLength="100" Nullable="false"/>
+                <Property Name="value2" Type="Edm.String" MaxLength="100"/>
+            </EntityType>
+            <EntityType Name="Vendor_gst">
+                <Key>
+                    <PropertyRef Name="table_key"/>
+                    <PropertyRef Name="IsActiveEntity"/>
+                </Key>
+                <Property Name="drop_key" Type="Edm.String" MaxLength="100"/>
+                <Property Name="table_key" Type="Edm.String" MaxLength="100" Nullable="false"/>
+                <Property Name="value2" Type="Edm.String" MaxLength="100"/>
+                <Property Name="IsActiveEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="true"/>
+                <Property Name="HasActiveEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="false"/>
+                <Property Name="HasDraftEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="false"/>
+                <NavigationProperty Name="DraftAdministrativeData" Type="ApplicationService.DraftAdministrativeData" ContainsTarget="true"/>
+                <NavigationProperty Name="SiblingEntity" Type="ApplicationService.Vendor_gst"/>
+            </EntityType>
+            <EntityType Name="Vendor_gst_treatment">
+                <Key>
+                    <PropertyRef Name="table_key"/>
+                    <PropertyRef Name="IsActiveEntity"/>
+                </Key>
+                <Property Name="drop_key" Type="Edm.String" MaxLength="100"/>
+                <Property Name="table_key" Type="Edm.String" MaxLength="100" Nullable="false"/>
+                <Property Name="value2" Type="Edm.String" MaxLength="100"/>
+                <Property Name="IsActiveEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="true"/>
+                <Property Name="HasActiveEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="false"/>
+                <Property Name="HasDraftEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="false"/>
+                <NavigationProperty Name="DraftAdministrativeData" Type="ApplicationService.DraftAdministrativeData" ContainsTarget="true"/>
+                <NavigationProperty Name="SiblingEntity" Type="ApplicationService.Vendor_gst_treatment"/>
+            </EntityType>
+            <EntityType Name="Vendor_payment_terms">
+                <Key>
+                    <PropertyRef Name="table_key"/>
+                    <PropertyRef Name="IsActiveEntity"/>
+                </Key>
+                <Property Name="drop_key" Type="Edm.String" MaxLength="100"/>
+                <Property Name="table_key" Type="Edm.String" MaxLength="100" Nullable="false"/>
+                <Property Name="value2" Type="Edm.String" MaxLength="100"/>
+                <Property Name="IsActiveEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="true"/>
+                <Property Name="HasActiveEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="false"/>
+                <Property Name="HasDraftEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="false"/>
+                <NavigationProperty Name="DraftAdministrativeData" Type="ApplicationService.DraftAdministrativeData" ContainsTarget="true"/>
+                <NavigationProperty Name="SiblingEntity" Type="ApplicationService.Vendor_payment_terms"/>
+            </EntityType>
+            <EntityType Name="Vendor_tds">
+                <Key>
+                    <PropertyRef Name="table_key"/>
+                    <PropertyRef Name="IsActiveEntity"/>
+                </Key>
+                <Property Name="drop_key" Type="Edm.String" MaxLength="100"/>
+                <Property Name="table_key" Type="Edm.String" MaxLength="100" Nullable="false"/>
+                <Property Name="value2" Type="Edm.String" MaxLength="100"/>
+                <Property Name="value3" Type="Edm.String" MaxLength="100"/>
+                <Property Name="IsActiveEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="true"/>
+                <Property Name="HasActiveEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="false"/>
+                <Property Name="HasDraftEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="false"/>
+                <NavigationProperty Name="DraftAdministrativeData" Type="ApplicationService.DraftAdministrativeData" ContainsTarget="true"/>
+                <NavigationProperty Name="SiblingEntity" Type="ApplicationService.Vendor_tds"/>
+            </EntityType>
+            <EntityType Name="DraftAdministrativeData">
+                <Key>
+                    <PropertyRef Name="DraftUUID"/>
+                </Key>
+                <Property Name="DraftUUID" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="CreationDateTime" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="CreatedByUser" Type="Edm.String" MaxLength="256"/>
+                <Property Name="DraftIsCreatedByMe" Type="Edm.Boolean"/>
+                <Property Name="LastChangeDateTime" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="LastChangedByUser" Type="Edm.String" MaxLength="256"/>
+                <Property Name="InProcessByUser" Type="Edm.String" MaxLength="256"/>
+                <Property Name="DraftIsProcessedByMe" Type="Edm.Boolean"/>
+            </EntityType>
+            <Action Name="draftPrepare" IsBound="true" EntitySetPath="in">
+                <Parameter Name="in" Type="ApplicationService.Members"/>
+                <Parameter Name="SideEffectsQualifier" Type="Edm.String"/>
+                <ReturnType Type="ApplicationService.Members"/>
+            </Action>
+            <Action Name="draftPrepare" IsBound="true" EntitySetPath="in">
+                <Parameter Name="in" Type="ApplicationService.Company_code"/>
+                <Parameter Name="SideEffectsQualifier" Type="Edm.String"/>
+                <ReturnType Type="ApplicationService.Company_code"/>
+            </Action>
+            <Action Name="draftPrepare" IsBound="true" EntitySetPath="in">
+                <Parameter Name="in" Type="ApplicationService.Cost_center"/>
+                <Parameter Name="SideEffectsQualifier" Type="Edm.String"/>
+                <ReturnType Type="ApplicationService.Cost_center"/>
+            </Action>
+            <Action Name="draftPrepare" IsBound="true" EntitySetPath="in">
+                <Parameter Name="in" Type="ApplicationService.Jurisdiction_code"/>
+                <Parameter Name="SideEffectsQualifier" Type="Edm.String"/>
+                <ReturnType Type="ApplicationService.Jurisdiction_code"/>
+            </Action>
+            <Action Name="draftPrepare" IsBound="true" EntitySetPath="in">
+                <Parameter Name="in" Type="ApplicationService.Department"/>
+                <Parameter Name="SideEffectsQualifier" Type="Edm.String"/>
+                <ReturnType Type="ApplicationService.Department"/>
+            </Action>
+            <Action Name="draftPrepare" IsBound="true" EntitySetPath="in">
+                <Parameter Name="in" Type="ApplicationService.Unit_Measures"/>
+                <Parameter Name="SideEffectsQualifier" Type="Edm.String"/>
+                <ReturnType Type="ApplicationService.Unit_Measures"/>
+            </Action>
+            <Action Name="draftPrepare" IsBound="true" EntitySetPath="in">
+                <Parameter Name="in" Type="ApplicationService.G_L_Account"/>
+                <Parameter Name="SideEffectsQualifier" Type="Edm.String"/>
+                <ReturnType Type="ApplicationService.G_L_Account"/>
+            </Action>
+            <Action Name="draftPrepare" IsBound="true" EntitySetPath="in">
+                <Parameter Name="in" Type="ApplicationService.Dept_budget"/>
+                <Parameter Name="SideEffectsQualifier" Type="Edm.String"/>
+                <ReturnType Type="ApplicationService.Dept_budget"/>
+            </Action>
+            <Action Name="draftPrepare" IsBound="true" EntitySetPath="in">
+                <Parameter Name="in" Type="ApplicationService.Default_master"/>
+                <Parameter Name="SideEffectsQualifier" Type="Edm.String"/>
+                <ReturnType Type="ApplicationService.Default_master"/>
+            </Action>
+            <Action Name="draftPrepare" IsBound="true" EntitySetPath="in">
+                <Parameter Name="in" Type="ApplicationService.Internal_order"/>
+                <Parameter Name="SideEffectsQualifier" Type="Edm.String"/>
+                <ReturnType Type="ApplicationService.Internal_order"/>
+            </Action>
+            <Action Name="draftPrepare" IsBound="true" EntitySetPath="in">
+                <Parameter Name="in" Type="ApplicationService.Item_category"/>
+                <Parameter Name="SideEffectsQualifier" Type="Edm.String"/>
+                <ReturnType Type="ApplicationService.Item_category"/>
+            </Action>
+            <Action Name="draftPrepare" IsBound="true" EntitySetPath="in">
+                <Parameter Name="in" Type="ApplicationService.Material_master"/>
+                <Parameter Name="SideEffectsQualifier" Type="Edm.String"/>
+                <ReturnType Type="ApplicationService.Material_master"/>
+            </Action>
+            <Action Name="draftPrepare" IsBound="true" EntitySetPath="in">
+                <Parameter Name="in" Type="ApplicationService.Plant"/>
+                <Parameter Name="SideEffectsQualifier" Type="Edm.String"/>
+                <ReturnType Type="ApplicationService.Plant"/>
+            </Action>
+            <Action Name="draftPrepare" IsBound="true" EntitySetPath="in">
+                <Parameter Name="in" Type="ApplicationService.Tax_code"/>
+                <Parameter Name="SideEffectsQualifier" Type="Edm.String"/>
+                <ReturnType Type="ApplicationService.Tax_code"/>
+            </Action>
+            <Action Name="draftPrepare" IsBound="true" EntitySetPath="in">
+                <Parameter Name="in" Type="ApplicationService.Vendor_master"/>
+                <Parameter Name="SideEffectsQualifier" Type="Edm.String"/>
+                <ReturnType Type="ApplicationService.Vendor_master"/>
+            </Action>
+            <Action Name="draftPrepare" IsBound="true" EntitySetPath="in">
+                <Parameter Name="in" Type="ApplicationService.Currency"/>
+                <Parameter Name="SideEffectsQualifier" Type="Edm.String"/>
+                <ReturnType Type="ApplicationService.Currency"/>
+            </Action>
+            <Action Name="draftPrepare" IsBound="true" EntitySetPath="in">
+                <Parameter Name="in" Type="ApplicationService.Document_type"/>
+                <Parameter Name="SideEffectsQualifier" Type="Edm.String"/>
+                <ReturnType Type="ApplicationService.Document_type"/>
+            </Action>
+            <Action Name="draftPrepare" IsBound="true" EntitySetPath="in">
+                <Parameter Name="in" Type="ApplicationService.Vendor_gst"/>
+                <Parameter Name="SideEffectsQualifier" Type="Edm.String"/>
+                <ReturnType Type="ApplicationService.Vendor_gst"/>
+            </Action>
+            <Action Name="draftPrepare" IsBound="true" EntitySetPath="in">
+                <Parameter Name="in" Type="ApplicationService.Vendor_gst_treatment"/>
+                <Parameter Name="SideEffectsQualifier" Type="Edm.String"/>
+                <ReturnType Type="ApplicationService.Vendor_gst_treatment"/>
+            </Action>
+            <Action Name="draftPrepare" IsBound="true" EntitySetPath="in">
+                <Parameter Name="in" Type="ApplicationService.Vendor_payment_terms"/>
+                <Parameter Name="SideEffectsQualifier" Type="Edm.String"/>
+                <ReturnType Type="ApplicationService.Vendor_payment_terms"/>
+            </Action>
+            <Action Name="draftPrepare" IsBound="true" EntitySetPath="in">
+                <Parameter Name="in" Type="ApplicationService.Vendor_tds"/>
+                <Parameter Name="SideEffectsQualifier" Type="Edm.String"/>
+                <ReturnType Type="ApplicationService.Vendor_tds"/>
+            </Action>
+            <Action Name="draftActivate" IsBound="true" EntitySetPath="in">
+                <Parameter Name="in" Type="ApplicationService.Members"/>
+                <ReturnType Type="ApplicationService.Members"/>
+            </Action>
+            <Action Name="draftActivate" IsBound="true" EntitySetPath="in">
+                <Parameter Name="in" Type="ApplicationService.Company_code"/>
+                <ReturnType Type="ApplicationService.Company_code"/>
+            </Action>
+            <Action Name="draftActivate" IsBound="true" EntitySetPath="in">
+                <Parameter Name="in" Type="ApplicationService.Cost_center"/>
+                <ReturnType Type="ApplicationService.Cost_center"/>
+            </Action>
+            <Action Name="draftActivate" IsBound="true" EntitySetPath="in">
+                <Parameter Name="in" Type="ApplicationService.Jurisdiction_code"/>
+                <ReturnType Type="ApplicationService.Jurisdiction_code"/>
+            </Action>
+            <Action Name="draftActivate" IsBound="true" EntitySetPath="in">
+                <Parameter Name="in" Type="ApplicationService.Department"/>
+                <ReturnType Type="ApplicationService.Department"/>
+            </Action>
+            <Action Name="draftActivate" IsBound="true" EntitySetPath="in">
+                <Parameter Name="in" Type="ApplicationService.Unit_Measures"/>
+                <ReturnType Type="ApplicationService.Unit_Measures"/>
+            </Action>
+            <Action Name="draftActivate" IsBound="true" EntitySetPath="in">
+                <Parameter Name="in" Type="ApplicationService.G_L_Account"/>
+                <ReturnType Type="ApplicationService.G_L_Account"/>
+            </Action>
+            <Action Name="draftActivate" IsBound="true" EntitySetPath="in">
+                <Parameter Name="in" Type="ApplicationService.Dept_budget"/>
+                <ReturnType Type="ApplicationService.Dept_budget"/>
+            </Action>
+            <Action Name="draftActivate" IsBound="true" EntitySetPath="in">
+                <Parameter Name="in" Type="ApplicationService.Default_master"/>
+                <ReturnType Type="ApplicationService.Default_master"/>
+            </Action>
+            <Action Name="draftActivate" IsBound="true" EntitySetPath="in">
+                <Parameter Name="in" Type="ApplicationService.Internal_order"/>
+                <ReturnType Type="ApplicationService.Internal_order"/>
+            </Action>
+            <Action Name="draftActivate" IsBound="true" EntitySetPath="in">
+                <Parameter Name="in" Type="ApplicationService.Item_category"/>
+                <ReturnType Type="ApplicationService.Item_category"/>
+            </Action>
+            <Action Name="draftActivate" IsBound="true" EntitySetPath="in">
+                <Parameter Name="in" Type="ApplicationService.Material_master"/>
+                <ReturnType Type="ApplicationService.Material_master"/>
+            </Action>
+            <Action Name="draftActivate" IsBound="true" EntitySetPath="in">
+                <Parameter Name="in" Type="ApplicationService.Plant"/>
+                <ReturnType Type="ApplicationService.Plant"/>
+            </Action>
+            <Action Name="draftActivate" IsBound="true" EntitySetPath="in">
+                <Parameter Name="in" Type="ApplicationService.Tax_code"/>
+                <ReturnType Type="ApplicationService.Tax_code"/>
+            </Action>
+            <Action Name="draftActivate" IsBound="true" EntitySetPath="in">
+                <Parameter Name="in" Type="ApplicationService.Vendor_master"/>
+                <ReturnType Type="ApplicationService.Vendor_master"/>
+            </Action>
+            <Action Name="draftActivate" IsBound="true" EntitySetPath="in">
+                <Parameter Name="in" Type="ApplicationService.Currency"/>
+                <ReturnType Type="ApplicationService.Currency"/>
+            </Action>
+            <Action Name="draftActivate" IsBound="true" EntitySetPath="in">
+                <Parameter Name="in" Type="ApplicationService.Document_type"/>
+                <ReturnType Type="ApplicationService.Document_type"/>
+            </Action>
+            <Action Name="draftActivate" IsBound="true" EntitySetPath="in">
+                <Parameter Name="in" Type="ApplicationService.Vendor_gst"/>
+                <ReturnType Type="ApplicationService.Vendor_gst"/>
+            </Action>
+            <Action Name="draftActivate" IsBound="true" EntitySetPath="in">
+                <Parameter Name="in" Type="ApplicationService.Vendor_gst_treatment"/>
+                <ReturnType Type="ApplicationService.Vendor_gst_treatment"/>
+            </Action>
+            <Action Name="draftActivate" IsBound="true" EntitySetPath="in">
+                <Parameter Name="in" Type="ApplicationService.Vendor_payment_terms"/>
+                <ReturnType Type="ApplicationService.Vendor_payment_terms"/>
+            </Action>
+            <Action Name="draftActivate" IsBound="true" EntitySetPath="in">
+                <Parameter Name="in" Type="ApplicationService.Vendor_tds"/>
+                <ReturnType Type="ApplicationService.Vendor_tds"/>
+            </Action>
+            <Action Name="draftEdit" IsBound="true" EntitySetPath="in">
+                <Parameter Name="in" Type="ApplicationService.Members"/>
+                <Parameter Name="PreserveChanges" Type="Edm.Boolean"/>
+                <ReturnType Type="ApplicationService.Members"/>
+            </Action>
+            <Action Name="draftEdit" IsBound="true" EntitySetPath="in">
+                <Parameter Name="in" Type="ApplicationService.Company_code"/>
+                <Parameter Name="PreserveChanges" Type="Edm.Boolean"/>
+                <ReturnType Type="ApplicationService.Company_code"/>
+            </Action>
+            <Action Name="draftEdit" IsBound="true" EntitySetPath="in">
+                <Parameter Name="in" Type="ApplicationService.Cost_center"/>
+                <Parameter Name="PreserveChanges" Type="Edm.Boolean"/>
+                <ReturnType Type="ApplicationService.Cost_center"/>
+            </Action>
+            <Action Name="draftEdit" IsBound="true" EntitySetPath="in">
+                <Parameter Name="in" Type="ApplicationService.Jurisdiction_code"/>
+                <Parameter Name="PreserveChanges" Type="Edm.Boolean"/>
+                <ReturnType Type="ApplicationService.Jurisdiction_code"/>
+            </Action>
+            <Action Name="draftEdit" IsBound="true" EntitySetPath="in">
+                <Parameter Name="in" Type="ApplicationService.Department"/>
+                <Parameter Name="PreserveChanges" Type="Edm.Boolean"/>
+                <ReturnType Type="ApplicationService.Department"/>
+            </Action>
+            <Action Name="draftEdit" IsBound="true" EntitySetPath="in">
+                <Parameter Name="in" Type="ApplicationService.Unit_Measures"/>
+                <Parameter Name="PreserveChanges" Type="Edm.Boolean"/>
+                <ReturnType Type="ApplicationService.Unit_Measures"/>
+            </Action>
+            <Action Name="draftEdit" IsBound="true" EntitySetPath="in">
+                <Parameter Name="in" Type="ApplicationService.G_L_Account"/>
+                <Parameter Name="PreserveChanges" Type="Edm.Boolean"/>
+                <ReturnType Type="ApplicationService.G_L_Account"/>
+            </Action>
+            <Action Name="draftEdit" IsBound="true" EntitySetPath="in">
+                <Parameter Name="in" Type="ApplicationService.Dept_budget"/>
+                <Parameter Name="PreserveChanges" Type="Edm.Boolean"/>
+                <ReturnType Type="ApplicationService.Dept_budget"/>
+            </Action>
+            <Action Name="draftEdit" IsBound="true" EntitySetPath="in">
+                <Parameter Name="in" Type="ApplicationService.Default_master"/>
+                <Parameter Name="PreserveChanges" Type="Edm.Boolean"/>
+                <ReturnType Type="ApplicationService.Default_master"/>
+            </Action>
+            <Action Name="draftEdit" IsBound="true" EntitySetPath="in">
+                <Parameter Name="in" Type="ApplicationService.Internal_order"/>
+                <Parameter Name="PreserveChanges" Type="Edm.Boolean"/>
+                <ReturnType Type="ApplicationService.Internal_order"/>
+            </Action>
+            <Action Name="draftEdit" IsBound="true" EntitySetPath="in">
+                <Parameter Name="in" Type="ApplicationService.Item_category"/>
+                <Parameter Name="PreserveChanges" Type="Edm.Boolean"/>
+                <ReturnType Type="ApplicationService.Item_category"/>
+            </Action>
+            <Action Name="draftEdit" IsBound="true" EntitySetPath="in">
+                <Parameter Name="in" Type="ApplicationService.Material_master"/>
+                <Parameter Name="PreserveChanges" Type="Edm.Boolean"/>
+                <ReturnType Type="ApplicationService.Material_master"/>
+            </Action>
+            <Action Name="draftEdit" IsBound="true" EntitySetPath="in">
+                <Parameter Name="in" Type="ApplicationService.Plant"/>
+                <Parameter Name="PreserveChanges" Type="Edm.Boolean"/>
+                <ReturnType Type="ApplicationService.Plant"/>
+            </Action>
+            <Action Name="draftEdit" IsBound="true" EntitySetPath="in">
+                <Parameter Name="in" Type="ApplicationService.Tax_code"/>
+                <Parameter Name="PreserveChanges" Type="Edm.Boolean"/>
+                <ReturnType Type="ApplicationService.Tax_code"/>
+            </Action>
+            <Action Name="draftEdit" IsBound="true" EntitySetPath="in">
+                <Parameter Name="in" Type="ApplicationService.Vendor_master"/>
+                <Parameter Name="PreserveChanges" Type="Edm.Boolean"/>
+                <ReturnType Type="ApplicationService.Vendor_master"/>
+            </Action>
+            <Action Name="draftEdit" IsBound="true" EntitySetPath="in">
+                <Parameter Name="in" Type="ApplicationService.Currency"/>
+                <Parameter Name="PreserveChanges" Type="Edm.Boolean"/>
+                <ReturnType Type="ApplicationService.Currency"/>
+            </Action>
+            <Action Name="draftEdit" IsBound="true" EntitySetPath="in">
+                <Parameter Name="in" Type="ApplicationService.Document_type"/>
+                <Parameter Name="PreserveChanges" Type="Edm.Boolean"/>
+                <ReturnType Type="ApplicationService.Document_type"/>
+            </Action>
+            <Action Name="draftEdit" IsBound="true" EntitySetPath="in">
+                <Parameter Name="in" Type="ApplicationService.Vendor_gst"/>
+                <Parameter Name="PreserveChanges" Type="Edm.Boolean"/>
+                <ReturnType Type="ApplicationService.Vendor_gst"/>
+            </Action>
+            <Action Name="draftEdit" IsBound="true" EntitySetPath="in">
+                <Parameter Name="in" Type="ApplicationService.Vendor_gst_treatment"/>
+                <Parameter Name="PreserveChanges" Type="Edm.Boolean"/>
+                <ReturnType Type="ApplicationService.Vendor_gst_treatment"/>
+            </Action>
+            <Action Name="draftEdit" IsBound="true" EntitySetPath="in">
+                <Parameter Name="in" Type="ApplicationService.Vendor_payment_terms"/>
+                <Parameter Name="PreserveChanges" Type="Edm.Boolean"/>
+                <ReturnType Type="ApplicationService.Vendor_payment_terms"/>
+            </Action>
+            <Action Name="draftEdit" IsBound="true" EntitySetPath="in">
+                <Parameter Name="in" Type="ApplicationService.Vendor_tds"/>
+                <Parameter Name="PreserveChanges" Type="Edm.Boolean"/>
+                <ReturnType Type="ApplicationService.Vendor_tds"/>
+            </Action>
+            <Action Name="Set_Default" IsBound="true">
+                <Parameter Name="in" Type="ApplicationService.Department"/>
+            </Action>
+            <Action Name="save_Comp_code" IsBound="false"/>
+            <Action Name="save_Currency" IsBound="false"/>
+            <Action Name="save_plant" IsBound="false"/>
+            <Action Name="save_C_center" IsBound="false"/>
+            <Action Name="save_GL_Account" IsBound="false"/>
+            <Action Name="save_Int_order" IsBound="false"/>
+            <Action Name="save_Tax_code" IsBound="false"/>
+            <Action Name="save_UOM" IsBound="false"/>
+            <Action Name="save_jcode" IsBound="false"/>
+            <Action Name="save_D_master" IsBound="false"/>
+            <Action Name="save_dept" IsBound="false"/>
+            <Action Name="save_Dept_budget" IsBound="false"/>
+            <Action Name="save_M_master" IsBound="false"/>
+            <Action Name="save_Item_category" IsBound="false"/>
+            <Action Name="save_v_master" IsBound="false"/>
+            <Annotations Target="ApplicationService.UploadXl/excel">
+                <Annotation Term="Core.MediaType" String="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.EntityContainer/Members">
+                <Annotation Term="Common.DraftRoot">
+                    <Record Type="Common.DraftRootType">
+                        <PropertyValue Property="ActivationAction" String="ApplicationService.draftActivate"/>
+                        <PropertyValue Property="EditAction" String="ApplicationService.draftEdit"/>
+                        <PropertyValue Property="PreparationAction" String="ApplicationService.draftPrepare"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ApplicationService.Members/IsActiveEntity">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.Members/HasActiveEntity">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.Members/HasDraftEntity">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.Members/DraftAdministrativeData">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.EntityContainer/Company_code">
+                <Annotation Term="Common.DraftRoot">
+                    <Record Type="Common.DraftRootType">
+                        <PropertyValue Property="ActivationAction" String="ApplicationService.draftActivate"/>
+                        <PropertyValue Property="EditAction" String="ApplicationService.draftEdit"/>
+                        <PropertyValue Property="PreparationAction" String="ApplicationService.draftPrepare"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ApplicationService.Company_code/description">
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.Company_code/IsActiveEntity">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.Company_code/HasActiveEntity">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.Company_code/HasDraftEntity">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.Company_code/DraftAdministrativeData">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.EntityContainer/Cost_center">
+                <Annotation Term="Common.DraftRoot">
+                    <Record Type="Common.DraftRootType">
+                        <PropertyValue Property="ActivationAction" String="ApplicationService.draftActivate"/>
+                        <PropertyValue Property="EditAction" String="ApplicationService.draftEdit"/>
+                        <PropertyValue Property="PreparationAction" String="ApplicationService.draftPrepare"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ApplicationService.Cost_center/description">
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.Cost_center/IsActiveEntity">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.Cost_center/HasActiveEntity">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.Cost_center/HasDraftEntity">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.Cost_center/DraftAdministrativeData">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.EntityContainer/Jurisdiction_code">
+                <Annotation Term="Common.DraftRoot">
+                    <Record Type="Common.DraftRootType">
+                        <PropertyValue Property="ActivationAction" String="ApplicationService.draftActivate"/>
+                        <PropertyValue Property="EditAction" String="ApplicationService.draftEdit"/>
+                        <PropertyValue Property="PreparationAction" String="ApplicationService.draftPrepare"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ApplicationService.Jurisdiction_code/description">
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.Jurisdiction_code/IsActiveEntity">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.Jurisdiction_code/HasActiveEntity">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.Jurisdiction_code/HasDraftEntity">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.Jurisdiction_code/DraftAdministrativeData">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.EntityContainer/list">
+                <Annotation Term="Capabilities.DeleteRestrictions">
+                    <Record Type="Capabilities.DeleteRestrictionsType">
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.InsertRestrictions">
+                    <Record Type="Capabilities.InsertRestrictionsType">
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.UpdateRestrictions">
+                    <Record Type="Capabilities.UpdateRestrictionsType">
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ApplicationService.EntityContainer/Department">
+                <Annotation Term="Common.DraftRoot">
+                    <Record Type="Common.DraftRootType">
+                        <PropertyValue Property="ActivationAction" String="ApplicationService.draftActivate"/>
+                        <PropertyValue Property="EditAction" String="ApplicationService.draftEdit"/>
+                        <PropertyValue Property="PreparationAction" String="ApplicationService.draftPrepare"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ApplicationService.Department/department_id">
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.Department/department_name">
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.Department/IsActiveEntity">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.Department/HasActiveEntity">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.Department/HasDraftEntity">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.Department/DraftAdministrativeData">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.EntityContainer/Master">
+                <Annotation Term="Capabilities.DeleteRestrictions">
+                    <Record Type="Capabilities.DeleteRestrictionsType">
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.InsertRestrictions">
+                    <Record Type="Capabilities.InsertRestrictionsType">
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.UpdateRestrictions">
+                    <Record Type="Capabilities.UpdateRestrictionsType">
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ApplicationService.EntityContainer/Unit_Measures">
+                <Annotation Term="Common.DraftRoot">
+                    <Record Type="Common.DraftRootType">
+                        <PropertyValue Property="ActivationAction" String="ApplicationService.draftActivate"/>
+                        <PropertyValue Property="EditAction" String="ApplicationService.draftEdit"/>
+                        <PropertyValue Property="PreparationAction" String="ApplicationService.draftPrepare"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ApplicationService.Unit_Measures/description">
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.Unit_Measures/IsActiveEntity">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.Unit_Measures/HasActiveEntity">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.Unit_Measures/HasDraftEntity">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.Unit_Measures/DraftAdministrativeData">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.EntityContainer/G_L_Account">
+                <Annotation Term="Common.DraftRoot">
+                    <Record Type="Common.DraftRootType">
+                        <PropertyValue Property="ActivationAction" String="ApplicationService.draftActivate"/>
+                        <PropertyValue Property="EditAction" String="ApplicationService.draftEdit"/>
+                        <PropertyValue Property="PreparationAction" String="ApplicationService.draftPrepare"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ApplicationService.G_L_Account/description">
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.G_L_Account/IsActiveEntity">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.G_L_Account/HasActiveEntity">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.G_L_Account/HasDraftEntity">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.G_L_Account/DraftAdministrativeData">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.EntityContainer/Dept_budget">
+                <Annotation Term="Common.DraftRoot">
+                    <Record Type="Common.DraftRootType">
+                        <PropertyValue Property="ActivationAction" String="ApplicationService.draftActivate"/>
+                        <PropertyValue Property="EditAction" String="ApplicationService.draftEdit"/>
+                        <PropertyValue Property="PreparationAction" String="ApplicationService.draftPrepare"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ApplicationService.Dept_budget/budget">
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.Dept_budget/department_name">
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.Dept_budget/limit_per">
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.Dept_budget/valid_from">
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.Dept_budget/valid_to">
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.Dept_budget/IsActiveEntity">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.Dept_budget/HasActiveEntity">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.Dept_budget/HasDraftEntity">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.Dept_budget/DraftAdministrativeData">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.EntityContainer/Percent">
+                <Annotation Term="Capabilities.DeleteRestrictions">
+                    <Record Type="Capabilities.DeleteRestrictionsType">
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.InsertRestrictions">
+                    <Record Type="Capabilities.InsertRestrictionsType">
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.UpdateRestrictions">
+                    <Record Type="Capabilities.UpdateRestrictionsType">
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ApplicationService.EntityContainer/Default_master">
+                <Annotation Term="Common.DraftRoot">
+                    <Record Type="Common.DraftRootType">
+                        <PropertyValue Property="ActivationAction" String="ApplicationService.draftActivate"/>
+                        <PropertyValue Property="EditAction" String="ApplicationService.draftEdit"/>
+                        <PropertyValue Property="PreparationAction" String="ApplicationService.draftPrepare"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ApplicationService.Default_master/IsActiveEntity">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.Default_master/HasActiveEntity">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.Default_master/HasDraftEntity">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.Default_master/DraftAdministrativeData">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.EntityContainer/Roles">
+                <Annotation Term="Capabilities.DeleteRestrictions">
+                    <Record Type="Capabilities.DeleteRestrictionsType">
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.InsertRestrictions">
+                    <Record Type="Capabilities.InsertRestrictionsType">
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.UpdateRestrictions">
+                    <Record Type="Capabilities.UpdateRestrictionsType">
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ApplicationService.EntityContainer/Internal_order">
+                <Annotation Term="Common.DraftRoot">
+                    <Record Type="Common.DraftRootType">
+                        <PropertyValue Property="ActivationAction" String="ApplicationService.draftActivate"/>
+                        <PropertyValue Property="EditAction" String="ApplicationService.draftEdit"/>
+                        <PropertyValue Property="PreparationAction" String="ApplicationService.draftPrepare"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ApplicationService.Internal_order/description">
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.Internal_order/IsActiveEntity">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.Internal_order/HasActiveEntity">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.Internal_order/HasDraftEntity">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.Internal_order/DraftAdministrativeData">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.EntityContainer/Item_category">
+                <Annotation Term="Common.DraftRoot">
+                    <Record Type="Common.DraftRootType">
+                        <PropertyValue Property="ActivationAction" String="ApplicationService.draftActivate"/>
+                        <PropertyValue Property="EditAction" String="ApplicationService.draftEdit"/>
+                        <PropertyValue Property="PreparationAction" String="ApplicationService.draftPrepare"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ApplicationService.Item_category/description">
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.Item_category/IsActiveEntity">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.Item_category/HasActiveEntity">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.Item_category/HasDraftEntity">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.Item_category/DraftAdministrativeData">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.EntityContainer/Material_master">
+                <Annotation Term="Common.DraftRoot">
+                    <Record Type="Common.DraftRootType">
+                        <PropertyValue Property="ActivationAction" String="ApplicationService.draftActivate"/>
+                        <PropertyValue Property="EditAction" String="ApplicationService.draftEdit"/>
+                        <PropertyValue Property="PreparationAction" String="ApplicationService.draftPrepare"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ApplicationService.Material_master/material_name">
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.Material_master/unit_price">
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.Material_master/uom_description">
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.Material_master/IsActiveEntity">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.Material_master/HasActiveEntity">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.Material_master/HasDraftEntity">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.Material_master/DraftAdministrativeData">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.EntityContainer/Plant">
+                <Annotation Term="Common.DraftRoot">
+                    <Record Type="Common.DraftRootType">
+                        <PropertyValue Property="ActivationAction" String="ApplicationService.draftActivate"/>
+                        <PropertyValue Property="EditAction" String="ApplicationService.draftEdit"/>
+                        <PropertyValue Property="PreparationAction" String="ApplicationService.draftPrepare"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ApplicationService.Plant/description">
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.Plant/IsActiveEntity">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.Plant/HasActiveEntity">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.Plant/HasDraftEntity">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.Plant/DraftAdministrativeData">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.EntityContainer/Tax_code">
+                <Annotation Term="Common.DraftRoot">
+                    <Record Type="Common.DraftRootType">
+                        <PropertyValue Property="ActivationAction" String="ApplicationService.draftActivate"/>
+                        <PropertyValue Property="EditAction" String="ApplicationService.draftEdit"/>
+                        <PropertyValue Property="PreparationAction" String="ApplicationService.draftPrepare"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ApplicationService.Tax_code/description">
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.Tax_code/IsActiveEntity">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.Tax_code/HasActiveEntity">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.Tax_code/HasDraftEntity">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.Tax_code/DraftAdministrativeData">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.EntityContainer/Vendor_master">
+                <Annotation Term="Common.DraftRoot">
+                    <Record Type="Common.DraftRootType">
+                        <PropertyValue Property="ActivationAction" String="ApplicationService.draftActivate"/>
+                        <PropertyValue Property="EditAction" String="ApplicationService.draftEdit"/>
+                        <PropertyValue Property="PreparationAction" String="ApplicationService.draftPrepare"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ApplicationService.Vendor_master/currency">
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.Vendor_master/gst_treatment">
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.Vendor_master/email1">
+                <Annotation Term="Validation.Pattern" String="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.Vendor_master/email2">
+                <Annotation Term="Validation.Pattern" String="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.Vendor_master/email3">
+                <Annotation Term="Validation.Pattern" String="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.Vendor_master/vendor_name">
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.Vendor_master/vendor_no">
+                <Annotation Term="Validation.Pattern" String="[1-9][0-9]*"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.Vendor_master/IsActiveEntity">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.Vendor_master/HasActiveEntity">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.Vendor_master/HasDraftEntity">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.Vendor_master/DraftAdministrativeData">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.EntityContainer/Currency">
+                <Annotation Term="Common.DraftRoot">
+                    <Record Type="Common.DraftRootType">
+                        <PropertyValue Property="ActivationAction" String="ApplicationService.draftActivate"/>
+                        <PropertyValue Property="EditAction" String="ApplicationService.draftEdit"/>
+                        <PropertyValue Property="PreparationAction" String="ApplicationService.draftPrepare"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ApplicationService.Currency/description">
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.Currency/IsActiveEntity">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.Currency/HasActiveEntity">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.Currency/HasDraftEntity">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.Currency/DraftAdministrativeData">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.EntityContainer/Document_type">
+                <Annotation Term="Common.DraftRoot">
+                    <Record Type="Common.DraftRootType">
+                        <PropertyValue Property="ActivationAction" String="ApplicationService.draftActivate"/>
+                        <PropertyValue Property="EditAction" String="ApplicationService.draftEdit"/>
+                        <PropertyValue Property="PreparationAction" String="ApplicationService.draftPrepare"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ApplicationService.Document_type/IsActiveEntity">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.Document_type/HasActiveEntity">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.Document_type/HasDraftEntity">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.Document_type/DraftAdministrativeData">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.EntityContainer/Country">
+                <Annotation Term="Capabilities.DeleteRestrictions">
+                    <Record Type="Capabilities.DeleteRestrictionsType">
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.InsertRestrictions">
+                    <Record Type="Capabilities.InsertRestrictionsType">
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.UpdateRestrictions">
+                    <Record Type="Capabilities.UpdateRestrictionsType">
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ApplicationService.EntityContainer/Payment_method">
+                <Annotation Term="Capabilities.DeleteRestrictions">
+                    <Record Type="Capabilities.DeleteRestrictionsType">
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.InsertRestrictions">
+                    <Record Type="Capabilities.InsertRestrictionsType">
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.UpdateRestrictions">
+                    <Record Type="Capabilities.UpdateRestrictionsType">
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ApplicationService.EntityContainer/Vendor_gst">
+                <Annotation Term="Common.DraftRoot">
+                    <Record Type="Common.DraftRootType">
+                        <PropertyValue Property="ActivationAction" String="ApplicationService.draftActivate"/>
+                        <PropertyValue Property="EditAction" String="ApplicationService.draftEdit"/>
+                        <PropertyValue Property="PreparationAction" String="ApplicationService.draftPrepare"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ApplicationService.Vendor_gst/IsActiveEntity">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.Vendor_gst/HasActiveEntity">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.Vendor_gst/HasDraftEntity">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.Vendor_gst/DraftAdministrativeData">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.EntityContainer/Vendor_gst_treatment">
+                <Annotation Term="Common.DraftRoot">
+                    <Record Type="Common.DraftRootType">
+                        <PropertyValue Property="ActivationAction" String="ApplicationService.draftActivate"/>
+                        <PropertyValue Property="EditAction" String="ApplicationService.draftEdit"/>
+                        <PropertyValue Property="PreparationAction" String="ApplicationService.draftPrepare"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ApplicationService.Vendor_gst_treatment/IsActiveEntity">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.Vendor_gst_treatment/HasActiveEntity">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.Vendor_gst_treatment/HasDraftEntity">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.Vendor_gst_treatment/DraftAdministrativeData">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.EntityContainer/Vendor_payment_terms">
+                <Annotation Term="Common.DraftRoot">
+                    <Record Type="Common.DraftRootType">
+                        <PropertyValue Property="ActivationAction" String="ApplicationService.draftActivate"/>
+                        <PropertyValue Property="EditAction" String="ApplicationService.draftEdit"/>
+                        <PropertyValue Property="PreparationAction" String="ApplicationService.draftPrepare"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ApplicationService.Vendor_payment_terms/IsActiveEntity">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.Vendor_payment_terms/HasActiveEntity">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.Vendor_payment_terms/HasDraftEntity">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.Vendor_payment_terms/DraftAdministrativeData">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.EntityContainer/Vendor_tds">
+                <Annotation Term="Common.DraftRoot">
+                    <Record Type="Common.DraftRootType">
+                        <PropertyValue Property="ActivationAction" String="ApplicationService.draftActivate"/>
+                        <PropertyValue Property="EditAction" String="ApplicationService.draftEdit"/>
+                        <PropertyValue Property="PreparationAction" String="ApplicationService.draftPrepare"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ApplicationService.Vendor_tds/IsActiveEntity">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.Vendor_tds/HasActiveEntity">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.Vendor_tds/HasDraftEntity">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.Vendor_tds/DraftAdministrativeData">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ApplicationService.DraftAdministrativeData">
+                <Annotation Term="Common.Label" String="{i18n>Draft_DraftAdministrativeData}"/>
+                </Annotations>
+                <Annotations Target="ApplicationService.DraftAdministrativeData/DraftUUID">
+                    <Annotation Term="UI.Hidden" Bool="true"/>
+                    <Annotation Term="Common.Label" String="{i18n>Draft_DraftUUID}"/>
+                    </Annotations>
+                    <Annotations Target="ApplicationService.DraftAdministrativeData/CreationDateTime">
+                        <Annotation Term="Common.Label" String="{i18n>Draft_CreationDateTime}"/>
+                        </Annotations>
+                        <Annotations Target="ApplicationService.DraftAdministrativeData/CreatedByUser">
+                            <Annotation Term="Common.Label" String="{i18n>Draft_CreatedByUser}"/>
+                            </Annotations>
+                            <Annotations Target="ApplicationService.DraftAdministrativeData/DraftIsCreatedByMe">
+                                <Annotation Term="UI.Hidden" Bool="true"/>
+                                <Annotation Term="Common.Label" String="{i18n>Draft_DraftIsCreatedByMe}"/>
+                                </Annotations>
+                                <Annotations Target="ApplicationService.DraftAdministrativeData/LastChangeDateTime">
+                                    <Annotation Term="Common.Label" String="{i18n>Draft_LastChangeDateTime}"/>
+                                    </Annotations>
+                                    <Annotations Target="ApplicationService.DraftAdministrativeData/LastChangedByUser">
+                                        <Annotation Term="Common.Label" String="{i18n>Draft_LastChangedByUser}"/>
+                                        </Annotations>
+                                        <Annotations Target="ApplicationService.DraftAdministrativeData/InProcessByUser">
+                                            <Annotation Term="Common.Label" String="{i18n>Draft_InProcessByUser}"/>
+                                            </Annotations>
+                                            <Annotations Target="ApplicationService.DraftAdministrativeData/DraftIsProcessedByMe">
+                                                <Annotation Term="UI.Hidden" Bool="true"/>
+                                                <Annotation Term="Common.Label" String="{i18n>Draft_DraftIsProcessedByMe}"/>
+                                                </Annotations>
+                                            </Schema>
+                                        </edmx:DataServices>
+                                    </edmx:Edmx>
