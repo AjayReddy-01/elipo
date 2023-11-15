@@ -124,7 +124,12 @@ sap.ui.define(["sap/m/MessageBox", "sap/m/MessageToast", "sap/ui/core/UIComponen
 
                         setTimeout(function () {
                             oFragment.close();
-                          }, 3000);
+                          }, 4000);
+                        //   setTimeout(function () {
+                        //     location.reload();
+                        //   }, 5000); 
+                          
+                          
 
                     }
                 }
@@ -132,11 +137,6 @@ sap.ui.define(["sap/m/MessageBox", "sap/m/MessageToast", "sap/ui/core/UIComponen
         };
 
         return {
-            // onClose: function () {
-            //     var oFragment = sap.ui.xmlfragment("master.fragments.warning", this);
-
-            //     oFragment.close();
-            //   },
 
             Upload: function (oBindingContext, aSelectedContexts) {
                 debugger
@@ -274,9 +274,6 @@ sap.ui.define(["sap/m/MessageBox", "sap/m/MessageToast", "sap/ui/core/UIComponen
                 }).then(function (oDialog) {
                     oDialog.open();
                 });
-            },
-            temp: function() {
-                MessageToast.show("Custom handler invoked.");
             },
         };
     });
