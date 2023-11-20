@@ -125,9 +125,9 @@ sap.ui.define(["sap/m/MessageBox", "sap/m/MessageToast", "sap/ui/core/UIComponen
                         setTimeout(function () {
                             oFragment.close();
                           }, 4000);
-                        //   setTimeout(function () {
-                        //     location.reload();
-                        //   }, 5000); 
+                          setTimeout(function () {
+                            location.reload();
+                          }, 5000); 
                           
                           
 
