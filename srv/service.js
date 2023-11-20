@@ -2421,7 +2421,7 @@ module.exports = cds.service.impl(async function () {
                 }
             })
 
-            return req.data;
+  
         }
 
         const gst_treat = req.data.gst_treatment;
@@ -2440,6 +2440,7 @@ module.exports = cds.service.impl(async function () {
                 code: 'MANDATORY_GSTNO'
             });
         }
+        return req.data;
     });
 
     //--------------------------------------------------------
