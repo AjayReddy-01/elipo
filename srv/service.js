@@ -39,8 +39,8 @@ module.exports = cds.service.impl(async function () {
     const c4re = await cds.connect.to('iflow');
 
 
-     // handler for set default functionality in department
-     this.on('Set_Default', async req => {
+    // handler for set default functionality in department
+    this.on('Set_Default', async req => {
 
         const results = await SELECT.from(Department).where({ sr_no: req.params[0].sr_no });
         var d_id = results[0].sr_no;
@@ -60,147 +60,146 @@ module.exports = cds.service.impl(async function () {
 
     var b_company_code = false;
     this.on('save_Comp_code', async req => {
-        debugger
-       if(b_company_code){
-        const c_code = await SELECT.from(Company_code);
+        if (b_company_code) {
+            const c_code = await SELECT.from(Company_code);
 
-        var body = {
-            codes: c_code,
-            master_id: "1"
-        };
-        try {
-            const resp = await c4re.post('/master?import_entries=yes', body);
-            c_read = true;
-            b_company_code = false;
-            return c_code;
+            var body = {
+                codes: c_code,
+                master_id: "1"
+            };
+            try {
+                const resp = await c4re.post('/master?import_entries=yes', body);
+                c_read = true;
+                b_company_code = false;
+                return c_code;
 
-        } catch (err) {
-            req.error(500, err.message);
+            } catch (err) {
+                req.error(500, err.message);
+            }
         }
-       }
     });
-   
+
 
     var b_currency = false;
     this.on('save_Currency', async req => {
-       if(b_currency){
-        const c_code = await SELECT.from(Currency);
-        var body = {
-            codes: c_code,
-            master_id: "12"
-        };
-        try {
-            const resp = await c4re.post('/master?import_entries=yes', body);
-            c_read = true;
-            b_currency = false;
-            return c_code;
+        if (b_currency) {
+            const c_code = await SELECT.from(Currency);
+            var body = {
+                codes: c_code,
+                master_id: "12"
+            };
+            try {
+                const resp = await c4re.post('/master?import_entries=yes', body);
+                c_read = true;
+                b_currency = false;
+                return c_code;
 
-        } catch (err) {
-            req.error(500, err.message);
+            } catch (err) {
+                req.error(500, err.message);
+            }
         }
-       }
     });
 
     var b_plant = false;
     this.on('save_plant', async req => {
-       if(b_plant){
-        const c_code = await SELECT.from(Plant);
-        var body = {
-            codes: c_code,
-            master_id: "7"
-        };
-        try {
-            const resp = await c4re.post('/master?import_entries=yes', body);
-            c_read = true;
-            b_plant = false;
-            return c_code;
+        if (b_plant) {
+            const c_code = await SELECT.from(Plant);
+            var body = {
+                codes: c_code,
+                master_id: "7"
+            };
+            try {
+                const resp = await c4re.post('/master?import_entries=yes', body);
+                c_read = true;
+                b_plant = false;
+                return c_code;
 
-        } catch (err) {
-            req.error(500, err.message);
+            } catch (err) {
+                req.error(500, err.message);
+            }
         }
-       }
     });
 
     var b_cost_center = false;
     this.on('save_C_center', async req => {
-       if(b_cost_center){
-        const c_code = await SELECT.from(Cost_center);
-        var body = {
-            codes: c_code,
-            master_id: "3"
-        };
-        try {
-            const resp = await c4re.post('/master?import_entries=yes', body);
-            c_read = true;
-            b_cost_center = false;
-            return c_code;
+        if (b_cost_center) {
+            const c_code = await SELECT.from(Cost_center);
+            var body = {
+                codes: c_code,
+                master_id: "3"
+            };
+            try {
+                const resp = await c4re.post('/master?import_entries=yes', body);
+                c_read = true;
+                b_cost_center = false;
+                return c_code;
 
-        } catch (err) {
-            req.error(500, err.message);
+            } catch (err) {
+                req.error(500, err.message);
+            }
         }
-       }
     });
 
     var b_gl_account = false;
     this.on('save_GL_Account', async req => {
-       if(b_gl_account){
-        const c_code = await SELECT.from(G_L_Account);
-        var body = {
-            codes: c_code,
-            master_id: "2"
-        };
-        try {
-            const resp = await c4re.post('/master?import_entries=yes', body);
-            c_read = true;
-            b_gl_account = false;
-            return c_code;
+        if (b_gl_account) {
+            const c_code = await SELECT.from(G_L_Account);
+            var body = {
+                codes: c_code,
+                master_id: "2"
+            };
+            try {
+                const resp = await c4re.post('/master?import_entries=yes', body);
+                c_read = true;
+                b_gl_account = false;
+                return c_code;
 
-        } catch (err) {
-            req.error(500, err.message);
+            } catch (err) {
+                req.error(500, err.message);
+            }
         }
-       }
     });
 
     var b_int_order = false;
     this.on('save_Int_order', async req => {
-       if(b_int_order){
-        const c_code = await SELECT.from(Internal_order);
-        var body = {
-            codes: c_code,
-            master_id: "10"
-        };
-        try {
-            const resp = await c4re.post('/master?import_entries=yes', body);
-            c_read = true;
-            b_int_order = false;
-            return code;
+        if (b_int_order) {
+            const c_code = await SELECT.from(Internal_order);
+            var body = {
+                codes: c_code,
+                master_id: "10"
+            };
+            try {
+                const resp = await c4re.post('/master?import_entries=yes', body);
+                c_read = true;
+                b_int_order = false;
+                return code;
 
-        } catch (err) {
-            req.error(500, err.message);
+            } catch (err) {
+                req.error(500, err.message);
+            }
         }
-       }
     });
 
     var b_tax_code = false;
     this.on('save_Tax_code', async req => {
-       if(b_tax_code){
-        const c_code = await SELECT.from(Tax_code);
-        var body = c_code;
-        try {
-            const resp = await c4re.post('/tax-code?import_entries=yes', body);
-            tc_read = true;
-            b_tax_code = false;
-            return c_code;
+        if (b_tax_code) {
+            const c_code = await SELECT.from(Tax_code);
+            var body = c_code;
+            try {
+                const resp = await c4re.post('/tax-code?import_entries=yes', body);
+                tc_read = true;
+                b_tax_code = false;
+                return c_code;
 
-        } catch (err) {
-            req.error(500, err.message);
+            } catch (err) {
+                req.error(500, err.message);
+            }
         }
-       }
     });
 
     var b_uom = false;
     this.on('save_UOM', async req => {
-        if(b_uom){
+        if (b_uom) {
             const c_code = await SELECT.from(Unit_Measures);
             var body = {
                 codes: c_code,
@@ -210,8 +209,8 @@ module.exports = cds.service.impl(async function () {
                 const resp = await c4re.post('/master?import_entries=yes', body);
                 um_read = true;
                 b_uom = false;
-                return ;
-    
+                return;
+
             } catch (err) {
                 req.error(500, err.message);
             }
@@ -220,21 +219,21 @@ module.exports = cds.service.impl(async function () {
 
     var b_jcode = false;
     this.on('save_jcode', async req => {
-        if(b_jcode){
+        if (b_jcode) {
             const c_code = await SELECT.from(Jurisdiction_code);
-        var body = {
-            codes: c_code,
-            master_id: "0"
-        };
-        try {
-            const resp = await c4re.post('/master?import_entries=yes', body);
-            c_read = true;
-            b_jcode = false;
-            return resp;
+            var body = {
+                codes: c_code,
+                master_id: "0"
+            };
+            try {
+                const resp = await c4re.post('/master?import_entries=yes', body);
+                c_read = true;
+                b_jcode = false;
+                return resp;
 
-        } catch (err) {
-            req.error(500, err.message);
-        }
+            } catch (err) {
+                req.error(500, err.message);
+            }
         }
     });
 
@@ -265,167 +264,167 @@ module.exports = cds.service.impl(async function () {
 
     var d_department = false;
     this.on('save_dept', async req => {
-       if(d_department){
-        const c_code = await SELECT.from(Department);
-        var body = [];
-        c_code.forEach(space => {
-            if (space.cost_center == null) { space.cost_center = '' };
-            if (space.gl_account == null) { space.gl_account = '' };
-            if (space.internal_order == null) { space.internal_order = '' };
-            body.push({
-                cost_center: space.cost_center,
-                department_name: space.department_name,
-                email: space.email,
-                gl_account: space.gl_account,
-                internal_order: space.internal_order,
-                member_name: space.member_name
+        if (d_department) {
+            const c_code = await SELECT.from(Department);
+            var body = [];
+            c_code.forEach(space => {
+                if (space.cost_center == null) { space.cost_center = '' };
+                if (space.gl_account == null) { space.gl_account = '' };
+                if (space.internal_order == null) { space.internal_order = '' };
+                body.push({
+                    cost_center: space.cost_center,
+                    department_name: space.department_name,
+                    email: space.email,
+                    gl_account: space.gl_account,
+                    internal_order: space.internal_order,
+                    member_name: space.member_name
+                })
             })
-        })
 
-        try {
-            const resp = await c4re.post('/department-master?import_entries=yes', body);
-            d_read = true;
-            d_department = false;
-            return body;
+            try {
+                const resp = await c4re.post('/department-master?import_entries=yes', body);
+                d_read = true;
+                d_department = false;
+                return body;
 
-        } catch (err) {
-            req.error(500, err.message);
+            } catch (err) {
+                req.error(500, err.message);
+            }
         }
-       }
     });
 
     var d_dept_budget = false;
     this.on('save_Dept_budget', async req => {
-       if(d_dept_budget){
-        const c_code = await SELECT.from(Dept_budget);
-        const arr = [];
-        c_code.forEach(space => {
-            arr.push({
-                budget: space.budget,
-                department_name: space.department_name,
-                limit_per: space.limit_per,
-                valid_from: space.valid_from,
-                valid_to: space.valid_to,
-                warning_per: space.warning_per,
-            })
-        });
-        const body = arr;
-        try {
-            const resp = await c4re.post('/departmental-budget-master?import_entries=yes', body);
-            db_read = true;
-            d_dept_budget = false;
-            return body;
+        if (d_dept_budget) {
+            const c_code = await SELECT.from(Dept_budget);
+            const arr = [];
+            c_code.forEach(space => {
+                arr.push({
+                    budget: space.budget,
+                    department_name: space.department_name,
+                    limit_per: space.limit_per,
+                    valid_from: space.valid_from,
+                    valid_to: space.valid_to,
+                    warning_per: space.warning_per,
+                })
+            });
+            const body = arr;
+            try {
+                const resp = await c4re.post('/departmental-budget-master?import_entries=yes', body);
+                db_read = true;
+                d_dept_budget = false;
+                return body;
 
-        } catch (err) {
-            req.error(500, err.message);
+            } catch (err) {
+                req.error(500, err.message);
+            }
         }
-       }
     });
 
     var b_m_master = false;
     this.on('save_M_master', async req => {
-       if(b_m_master){
-        const c_code = await SELECT.from(Material_master);
-        c_code.forEach(space => {
-            if (space.gl_account == null) { space.gl_account = ""; }
-            if (space.gst_per == null) { space.gst_per = ""; }
-            if (space.hsn_code == null) { space.hsn_code = ""; }
-            if (space.material_name == null) { space.material_name = ""; }
-            if (space.material_no == null) { space.material_no = ""; }
-            if (space.unit_price == null) { space.unit_price = ""; }
-            if (space.uom == null) { space.uom = ""; }
-            if (space.uom_description == null) { space.uom_description = ""; }
-        })
+        if (b_m_master) {
+            const c_code = await SELECT.from(Material_master);
+            c_code.forEach(space => {
+                if (space.gl_account == null) { space.gl_account = ""; }
+                if (space.gst_per == null) { space.gst_per = ""; }
+                if (space.hsn_code == null) { space.hsn_code = ""; }
+                if (space.material_name == null) { space.material_name = ""; }
+                if (space.material_no == null) { space.material_no = ""; }
+                if (space.unit_price == null) { space.unit_price = ""; }
+                if (space.uom == null) { space.uom = ""; }
+                if (space.uom_description == null) { space.uom_description = ""; }
+            })
 
-        var body = c_code;
-        try {
-            const resp = await c4re.post('/material-master?import_entries=yes', body);
-            c_read = true;
-            b_m_master = false;
-            return body;
+            var body = c_code;
+            try {
+                const resp = await c4re.post('/material-master?import_entries=yes', body);
+                c_read = true;
+                b_m_master = false;
+                return body;
 
-        } catch (err) {
-            req.error(500, err.message);
+            } catch (err) {
+                req.error(500, err.message);
+            }
         }
-       }
     });
 
     var b_item_category = false;
     this.on('save_Item_category', async req => {
-       if(b_item_category){
-        const c_code = await SELECT.from(Item_category);
-        var body = {
-            codes: c_code,
-            master_id: "11"
-        };
-        try {
-            const resp = await c4re.post('/master?import_entries=yes', body);
-            c_read = true;
-            b_item_category = false;
-            return resp;
+        if (b_item_category) {
+            const c_code = await SELECT.from(Item_category);
+            var body = {
+                codes: c_code,
+                master_id: "11"
+            };
+            try {
+                const resp = await c4re.post('/master?import_entries=yes', body);
+                c_read = true;
+                b_item_category = false;
+                return resp;
 
-        } catch (err) {
-            req.error(500, err.message);
+            } catch (err) {
+                req.error(500, err.message);
+            }
         }
-       }
     });
 
     var b_vendor_master = false;
     this.on('save_v_master', async req => {
-       if(b_vendor_master){
-        const c_code = await SELECT.from(Vendor_master);
-        var body = [];
-        c_code.forEach(space => {
-            if (space.email == null) { space.country = ""; }
-            if (space.gst_per == null) { space.gst_per = ""; }
-            if (space.pan == null) { space.pan = ""; }
-            if (space.payment_terms == null) { space.payment_terms = ""; }
-            if (space.source_of_supply == null) { space.source_of_supply = ""; }
-            if (space.member_id == null) { space.member_id = ""; }
-            if (space.member_name == null) { space.member_name = ""; }
-            if (space.tds == null) { space.tds = ""; }
-            if (space.gstin_uin == null) { space.gstin_uin = ""; }
-            if (space.gst_treatment == null) { space.gst_treatment = ""; }
-            if (space.international_code == null) { space.international_code = ""; }
-            if (space.jurisdiction_code == null) { space.jurisdiction_code = ""; }
-            if (space.email1 == null) { space.email1 = ""; }
-            if (space.email2 == null) { space.email2 = ""; }
-            if (space.email3 == null) { space.email3 = ""; }
-            const arr = [];
-            arr.push(space.email1);
-            arr.push(space.email2);
-            arr.push(space.email3);
-            body.push({
-                currency: space.currency,
-                email: space.email,
-                gst_per: space.gst_per,
-                gst_treatment: space.gst_treatment,
-                gstin_uin: space.gstin_uin,
-                international_code: space.international_code,
-                jurisdiction_code: space.jurisdiction_code,
-                member_name: space.member_name,
-                pan: space.pan,
-                payment_terms: space.payment_terms,
-                source_of_supply: space.source_of_supply,
-                member_id: space.member_id,
-                sup_emails: arr,
-                tds: space.tds,
-                vendor_name: space.vendor_name,
-                vendor_no: space.vendor_no
-            });
+        if (b_vendor_master) {
+            const c_code = await SELECT.from(Vendor_master);
+            var body = [];
+            c_code.forEach(space => {
+                if (space.email == null) { space.country = ""; }
+                if (space.gst_per == null) { space.gst_per = ""; }
+                if (space.pan == null) { space.pan = ""; }
+                if (space.payment_terms == null) { space.payment_terms = ""; }
+                if (space.source_of_supply == null) { space.source_of_supply = ""; }
+                if (space.member_id == null) { space.member_id = ""; }
+                if (space.member_name == null) { space.member_name = ""; }
+                if (space.tds == null) { space.tds = ""; }
+                if (space.gstin_uin == null) { space.gstin_uin = ""; }
+                if (space.gst_treatment == null) { space.gst_treatment = ""; }
+                if (space.international_code == null) { space.international_code = ""; }
+                if (space.jurisdiction_code == null) { space.jurisdiction_code = ""; }
+                if (space.email1 == null) { space.email1 = ""; }
+                if (space.email2 == null) { space.email2 = ""; }
+                if (space.email3 == null) { space.email3 = ""; }
+                const arr = [];
+                arr.push(space.email1);
+                arr.push(space.email2);
+                arr.push(space.email3);
+                body.push({
+                    currency: space.currency,
+                    email: space.email,
+                    gst_per: space.gst_per,
+                    gst_treatment: space.gst_treatment,
+                    gstin_uin: space.gstin_uin,
+                    international_code: space.international_code,
+                    jurisdiction_code: space.jurisdiction_code,
+                    member_name: space.member_name,
+                    pan: space.pan,
+                    payment_terms: space.payment_terms,
+                    source_of_supply: space.source_of_supply,
+                    member_id: space.member_id,
+                    sup_emails: arr,
+                    tds: space.tds,
+                    vendor_name: space.vendor_name,
+                    vendor_no: space.vendor_no
+                });
 
-        })
-  
-        try {
-            const resp = await c4re.post('/vendor-master?import_entries=yes', body);
-            vt_read = true;
-            b_vendor_master = false;
-            return body;
+            })
 
-        } catch (err) {
-            req.error(500, err.message);
+            try {
+                const resp = await c4re.post('/vendor-master?import_entries=yes', body);
+                vt_read = true;
+                b_vendor_master = false;
+                return body;
+
+            } catch (err) {
+                req.error(500, err.message);
+            }
         }
-       }
     });
 
 
@@ -596,7 +595,7 @@ module.exports = cds.service.impl(async function () {
             data = arr;
         }
 
- 
+
 
         if (entity === 'Internal_order') {
             const ccode = data;
@@ -759,7 +758,7 @@ module.exports = cds.service.impl(async function () {
 
 
 
-        
+
         const insertQuery = INSERT.into(entity).entries(data);
 
         // This calls the service handler of respective entity. It can be used if any custom 
@@ -871,7 +870,6 @@ module.exports = cds.service.impl(async function () {
     this.on('DELETE', Company_code, async (req) => {
         var code = req.params[0].code;
         try {
-            debugger
             resp = await c4re.delete(`/master?master_id=1&codes=${code}`);
             const result = await DELETE.from(Company_code).where({ code: code });
             return result;
@@ -1457,15 +1455,15 @@ module.exports = cds.service.impl(async function () {
                 dep.forEach(space => {
                     dep_entries.push({
                         cost_center: `${space.cost_center}`,
-    default_master_check: `${space.default_master_check}`,
-    department_id: `${space.department_id}`,
-    department_name: `${space.department_name}`,
-    email: `${space.email}`,
-    gl_account: `${space.gl_account}`,
-    internal_order: `${space.internal_order}`,
-    member_id: `${space.member_id}`,
-    member_name: `${space.member_name}`,
-    sr_no: `${space.sr_no}`,
+                        default_master_check: `${space.default_master_check}`,
+                        department_id: `${space.department_id}`,
+                        department_name: `${space.department_name}`,
+                        email: `${space.email}`,
+                        gl_account: `${space.gl_account}`,
+                        internal_order: `${space.internal_order}`,
+                        member_id: `${space.member_id}`,
+                        member_name: `${space.member_name}`,
+                        sr_no: `${space.sr_no}`,
                     })
                 });
                 await cds.tx(req).run(INSERT.into(Department).entries(dep_entries));
@@ -1682,7 +1680,7 @@ module.exports = cds.service.impl(async function () {
                 db.forEach(space => {
                     db_entries.push({
                         budget: space.budget,
-                        department_id: ''+space.department_id,
+                        department_id: '' + space.department_id,
                         department_name: space.department_name,
                         limit_per: space.limit_per,
                         valid_from: space.valid_from,
@@ -1716,19 +1714,19 @@ module.exports = cds.service.impl(async function () {
     this.before('POST', Dept_budget, async (req) => {
         //-------
         if (Array.isArray(req.data)) {
-            req.data.forEach(entry=>{
-                if(entry.valid_from > entry.valid_to){
+            req.data.forEach(entry => {
+                if (entry.valid_from > entry.valid_to) {
                     return req.error(400, 'Invalid Dates');
                 }
             })
-           
+
         }
 
-       else if (req.data.valid_from > req.data.valid_to) {
+        else if (req.data.valid_from > req.data.valid_to) {
             return req.error(400, 'Invalid Dates');
         }
         return req.data;
-         
+
     });
 
     this.on('POST', Dept_budget, async (req) => {
@@ -1857,7 +1855,7 @@ module.exports = cds.service.impl(async function () {
 
     //--------------------------------------------------------
     // delete G_L_Account
-    this.on('DELETE', G_L_Account, async (req) => {  
+    this.on('DELETE', G_L_Account, async (req) => {
         var code = req.params[0].code;
         try {
             cost_read = true;
@@ -2105,7 +2103,7 @@ module.exports = cds.service.impl(async function () {
                     mm_entries.push({
                         gl_account: `${space.hsn_code || ' '}`,
                         gst_per: space.gst_per,
-                        hsn_code:  `${space.hsn_code || ' '}`,
+                        hsn_code: `${space.hsn_code || ' '}`,
                         material_name: space.material_name,
                         material_no: space.material_no,
                         unit_price: space.unit_price,
@@ -2198,7 +2196,7 @@ module.exports = cds.service.impl(async function () {
     //--------------------------------------------------------
     // new Plant
     this.on('POST', Plant, async (req) => {
-  
+
         //-------
         if (Array.isArray(req.data)) {
             cds.tx(req).run(DELETE(Plant));
@@ -2271,10 +2269,10 @@ module.exports = cds.service.impl(async function () {
                 tc.forEach(space => {
                     t_code.push({
                         company_code: space.company_code,
-                        country: ''+space.country,
+                        country: '' + space.country,
                         description: space.description,
-                        tax_code: ''+space.tax_code,
-                        tax_per: ''+space.tax_per
+                        tax_code: '' + space.tax_code,
+                        tax_per: '' + space.tax_per
                     })
                 });
                 await cds.tx(req).run(INSERT.into(Tax_code).entries(t_code));
@@ -2285,6 +2283,8 @@ module.exports = cds.service.impl(async function () {
             req.error(500, err.message);
         }
     });
+
+    
     //--------------------------------------------------------
     //new Tax code
     this.on('POST', Tax_code, async (req) => {
@@ -2322,7 +2322,7 @@ module.exports = cds.service.impl(async function () {
         const t_code = req.params[0].tax_code;
         try {
             resp = await c4re.delete('/tax-code?company_code=' + code + '&tax_code=' + t_code);
-            const result = await DELETE.from(Tax_code).where({ company_codecode: code, tax_code : t_code });
+            const result = await DELETE.from(Tax_code).where({ company_codecode: code, tax_code: t_code });
             return result;
         } catch (err) {
             req.error(500, err.message);
@@ -2407,13 +2407,13 @@ module.exports = cds.service.impl(async function () {
     });
 
 
-
+    // validating vendor master
     this.before('POST', Vendor_master, async (req) => {
 
         if (Array.isArray(req.data)) {
-            const entries  = req.data;
-            entries.forEach(entry =>{
-                if (entry.gst_treat === 'registered_business') {
+            const entries = req.data;
+            entries.forEach(entry => {
+                if (entry.gst_treatment === 'registered_business') {
                     // if (req.data.gstin_uin === null) req.error ` GST NO is mandatory`;
                     if (req.data.gstin_uin === null) {
                         req.error({
@@ -2421,15 +2421,14 @@ module.exports = cds.service.impl(async function () {
                             code: 'MANDATORY_GSTNO'
                         });
                     }
-                 else if (entry.gstin_uin.length != 15) {
-                    req.error({
-                        message: 'Enter a valied "GST NO".',
-                        code: 'MANDATORY_GSTNO'
-                    });
+                    else if (entry.gstin_uin.length != 15) {
+                        req.error({
+                            message: 'Enter a valied "GST NO".',
+                            code: 'MANDATORY_GSTNO'
+                        });
+                    }
                 }
-            }
-                if (entry.gst_treat === 'overseas') {
-                    // if (req.data.gstin_uin === null) req.error ` GST NO is mandatory`;
+                else if (entry.gst_treatment === 'overseas') {
                     if (req.data.gstin_uin === null) {
                         req.error({
                             message: 'Int Tax Code is mandatory for "Overseas".',
@@ -2438,26 +2437,16 @@ module.exports = cds.service.impl(async function () {
                     }
                 }
             })
+        }
+        if (req.data.gst_treatment === 'registered_business') {
+            if (req.data.gstin_uin === null) req.error(400, `GST NO is mandatory for "REGISTERED BUSINESS".`)
 
-  
+            else if (req.data.gstin_uin.length != 15) req.error(400, `Enter a valied "GST NO".`)
+        }
+        else if (req.data.gst_treatment === 'overseas') {
+            if (req.data.gstin_uin === null) req.error(400, `Int Tax Code is mandatory for "Overseas".`)
         }
 
-        const gst_treat = req.data.gst_treatment;
-
-        if (gst_treat === 'registered_business') {
-            // if (req.data.gstin_uin === null) req.error ` GST NO is mandatory`;
-            if (req.data.gstin_uin === null) {
-                req.error({
-                    message: 'GST NO is mandatory for "REGISTERED BUSINESS".',
-                    code: 'MANDATORY_GSTNO'
-                });
-            }
-        } else if (req.data.gstin_uin.length != 15) {
-            req.error({
-                message: 'Enter a valied "GST NO".',
-                code: 'MANDATORY_GSTNO'
-            });
-        }
         return req.data;
     });
 
@@ -2538,25 +2527,23 @@ module.exports = cds.service.impl(async function () {
     this.before('UPDATE', Vendor_master, async (req) => {
 
         if (Array.isArray(req.data)) {
-            const entries  = req.data;
-            entries.forEach(entry =>{
-                if (entry.gst_treat === 'registered_business') {
-                    // if (req.data.gstin_uin === null) req.error ` GST NO is mandatory`;
+            const entries = req.data;
+            entries.forEach(entry => {
+                if (entry.gst_treatment === 'registered_business') {
                     if (req.data.gstin_uin === null) {
                         req.error({
                             message: 'GST NO is mandatory for "REGISTERED BUSINESS".',
                             code: 'MANDATORY_GSTNO'
                         });
                     }
-                 else if (entry.gstin_uin.length != 15) {
-                    req.error({
-                        message: 'Enter a valied "GST NO".',
-                        code: 'MANDATORY_GSTNO'
-                    });
+                    else if (entry.gstin_uin.length != 15) {
+                        req.error({
+                            message: 'Enter a valied "GST NO".',
+                            code: 'MANDATORY_GSTNO'
+                        });
+                    }
                 }
-            }
-                if (entry.gst_treat === 'overseas') {
-                    // if (req.data.gstin_uin === null) req.error ` GST NO is mandatory`;
+                else if (entry.gst_treatment === 'overseas') {
                     if (req.data.gstin_uin === null) {
                         req.error({
                             message: 'Int Tax Code is mandatory for "Overseas".',
@@ -2564,25 +2551,17 @@ module.exports = cds.service.impl(async function () {
                         });
                     }
                 }
-            }) 
+            })
+        }
+        if (req.data.gst_treatment === 'registered_business') {
+            if (req.data.gstin_uin === null) req.error(400, `GST NO is mandatory for "REGISTERED BUSINESS".`)
+
+            else if (req.data.gstin_uin.length != 15) req.error(400, `Enter a valied "GST NO".`)
+        }
+        else if (req.data.gst_treatment === 'overseas') {
+            if (req.data.gstin_uin === null) req.error(400, `Int Tax Code is mandatory for "Overseas".`)
         }
 
-        const gst_treat = req.data.gst_treatment;
-
-        if (gst_treat === 'registered_business') {
-            // if (req.data.gstin_uin === null) req.error ` GST NO is mandatory`;
-            if (req.data.gstin_uin === null) {
-                req.error({
-                    message: 'GST NO is mandatory for "REGISTERED BUSINESS".',
-                    code: 'MANDATORY_GSTNO'
-                });
-            }
-        } else if (req.data.gstin_uin.length != 15) {
-            req.error({
-                message: 'Enter a valied "GST NO".',
-                code: 'MANDATORY_GSTNO'
-            });
-        }
         return req.data;
     });
 
@@ -2619,8 +2598,9 @@ module.exports = cds.service.impl(async function () {
             vendor_name: req.data.vendor_name,
             vendor_no: req.data.vendor_no
         }
-        const vno = req.params[0].vendor_no;
+        
         try {
+            const vno = req.params[0].vendor_no;
             resp = await c4re.patch('/vendor-master?vendor_no=' + vno, body);
             const updatedEntity = await UPDATE(Vendor_master).set(req.data).where({ vendor_no: req.data.vendor_no });
             return req.data;
@@ -2628,7 +2608,5 @@ module.exports = cds.service.impl(async function () {
             req.error(500, err.message);
         }
     });
-
-   
 
 });

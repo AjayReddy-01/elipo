@@ -204,7 +204,7 @@ entity Vendor_master
     currency : String;
     email : String;
     gst_per : String;
-    gst_treatment : String;
+    gst_treatment : String; 
     gstin_uin : String;
     international_code : String;
     jurisdiction_code : String;

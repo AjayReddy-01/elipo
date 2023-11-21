@@ -94,6 +94,7 @@ service ApplicationService {
 
     annotate Material_master
     {
+        hsn_code @assert.format : '[0-9]*';
         material_name
             @mandatory;
         unit_price
