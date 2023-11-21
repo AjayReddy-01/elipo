@@ -120,13 +120,6 @@ service ApplicationService {
             @mandatory;
     }
 
-//     annotate Vendor_master {
-//     gst_treatment 
-//     @com.sap.vocabularies.Common.v1.FieldControl: {
-//       $Path : gst_treatment,
-//       $EnumMember: 'com.sap.vocabularies.Common.v1.FieldControlType/Mandatory'
-//     }
-//   }
 
 
     annotate Vendor_master
@@ -144,7 +137,7 @@ service ApplicationService {
         vendor_name
             @mandatory;
         vendor_no
-            @assert.format : '[1-9][0-9]*';
+            @assert.format : '[0-9]*';
     }
 
     @odata.draft.enabled

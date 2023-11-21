@@ -6,16 +6,19 @@ annotate service.Company_code with @(
             $Type : 'UI.DataField',
             Label : 'CODE',
             Value : code,
+            ![@UI.Importance] : #High,
         },
         {
             $Type : 'UI.DataField',
             Label : 'DESCRIPTION',
             Value : description,
+            ![@UI.Importance] : #High,
         },
         {
             $Type : 'UI.DataField',
             Value : tax_treatment,
             Label : 'TAX TREATMENT',
+             ![@UI.Importance] : #High,
         },
         {
             $Type : 'UI.DataFieldForAction',
@@ -77,10 +80,12 @@ annotate service.Jurisdiction_code with @(
             $Type : 'UI.DataField',
             Value : code,
             Label : 'Code',
+             ![@UI.Importance] : #High,
         },{
             $Type : 'UI.DataField',
             Value : description,
             Label : 'Description',
+             ![@UI.Importance] : #High,
         },
     ],
     UI.SelectionPresentationVariant #tableView : {
@@ -132,10 +137,12 @@ annotate service.Cost_center with @(
             $Type : 'UI.DataField',
             Value : code,
             Label : 'CODE',
+             ![@UI.Importance] : #High,
         },{
             $Type : 'UI.DataField',
             Value : description,
             Label : 'DESCRIPTION',
+             ![@UI.Importance] : #High,
         },
         {
             $Type : 'UI.DataFieldForAction',
@@ -165,10 +172,12 @@ annotate service.Currency with @(
             $Type : 'UI.DataField',
             Value : code,
             Label : 'CODE',
+             ![@UI.Importance] : #High,
         },{
             $Type : 'UI.DataField',
             Value : description,
             Label : 'DESCRIPTION',
+             ![@UI.Importance] : #High,
         },
         {
             $Type : 'UI.DataFieldForAction',
@@ -258,27 +267,33 @@ annotate service.Department with @(
             $Type : 'UI.DataField',
             Value : member_name,
             Label : 'USER ID',
+             ![@UI.Importance] : #High,
         },
         {
             $Type : 'UI.DataField',
             Value : email,
             Label : 'EMAIL',
+             ![@UI.Importance] : #High,
         },{
             $Type : 'UI.DataField',
             Value : department_name,
             Label : 'DEPARTMENT NAME',
+             ![@UI.Importance] : #High,
         },{
             $Type : 'UI.DataField',
             Value : cost_center,
             Label : 'COST CENTER',
+             ![@UI.Importance] : #High,
         },{
             $Type : 'UI.DataField',
             Value : gl_account,
             Label : 'G/L ACCOUNT',
+             ![@UI.Importance] : #High,
         },{
             $Type : 'UI.DataField',
             Value : internal_order,
             Label : 'INTERNAL ORDER',
+             ![@UI.Importance] : #High,
         },{
             $Type : 'UI.DataFieldForAction',
             Action : 'ApplicationService.EntityContainer/save_dept',
@@ -313,30 +328,36 @@ annotate service.Dept_budget with @(
             $Type : 'UI.DataField',
             Value : department_name,
             Label : 'NAME',
+             ![@UI.Importance] : #High,
         },
         {
             $Type : 'UI.DataField',
             Value : budget,
             Label : 'BUDGET',
+             ![@UI.Importance] : #High,
         },{
             $Type : 'UI.DataField',
             Value : warning_per,
             Label : 'WARNING',
+             ![@UI.Importance] : #High,
         },
         {
             $Type : 'UI.DataField',
             Value : limit_per,
             Label : 'LIMIT',
+             ![@UI.Importance] : #High,
         },
         {
             $Type : 'UI.DataField',
             Value : valid_from,
             Label : 'VALIED FROM',
+             ![@UI.Importance] : #High,
         },
         {
             $Type : 'UI.DataField',
             Value : valid_to,
             Label : 'VALIED TO',
+             ![@UI.Importance] : #High,
         },
         {
             $Type : 'UI.DataFieldForAction',
@@ -369,6 +390,7 @@ annotate service.G_L_Account with @(
             $Type : 'UI.DataField',
             Value : description,
             Label : 'DESCRIPTION',
+             ![@UI.Importance] : #High,
         },
         {
             $Type : 'UI.DataFieldForAction',
@@ -401,6 +423,7 @@ annotate service.Internal_order with @(
             $Type : 'UI.DataField',
             Value : description,
             Label : 'DESCRIPTION',
+             ![@UI.Importance] : #High,
         },
         {
             $Type : 'UI.DataFieldForAction',
@@ -433,6 +456,7 @@ annotate service.Item_category with @(
             $Type : 'UI.DataField',
             Value : description,
             Label : 'DESCRIPTION',
+             ![@UI.Importance] : #High,
         },
         {
             $Type : 'UI.DataFieldForAction',
@@ -465,6 +489,7 @@ annotate service.Jurisdiction_code with @(
             $Type : 'UI.DataField',
             Value : description,
             Label : 'DESCRIPTION',
+             ![@UI.Importance] : #High,
         },
         {
             $Type : 'UI.DataFieldForAction',
@@ -493,30 +518,37 @@ annotate service.Material_master with @(
             $Type : 'UI.DataField',
             Value : material_no,
             Label : 'MATERIAL NO',
+            ![@UI.Importance] : #High,
         },{
             $Type : 'UI.DataField',
             Value : material_name,
             Label : 'MATERIAL NAME',
+             ![@UI.Importance] : #High,
         },{
             $Type : 'UI.DataField',
             Value : hsn_code,
             Label : 'HSN CODE',
+             ![@UI.Importance] : #High,
         },{
             $Type : 'UI.DataField',
             Value : gst_per,
             Label : 'GST%',
+             ![@UI.Importance] : #High,
         },{
             $Type : 'UI.DataField',
             Value : unit_price,
             Label : 'UNIT PRICE',
+             ![@UI.Importance] : #High,
         },{
             $Type : 'UI.DataField',
             Value : uom_description,
             Label : 'UNIT OF MEASURE',
+             ![@UI.Importance] : #High,
         },{
             $Type : 'UI.DataField',
             Value : gl_account,
             Label : 'G/L ACCOUNT',
+             ![@UI.Importance] : #High,
         },
         {
             $Type : 'UI.DataFieldForAction',
@@ -549,6 +581,7 @@ annotate service.Plant with @(
             $Type : 'UI.DataField',
             Value : description,
             Label : 'DESCRIOPTION',
+             ![@UI.Importance] : #High,
         },
         {
             $Type : 'UI.DataFieldForAction',
@@ -577,19 +610,23 @@ annotate service.Tax_code with @(
             $Type : 'UI.DataField',
             Value : company_code,
             Label : 'COMPANY CODE',
+             ![@UI.Importance] : #High,
         },
         {
             $Type : 'UI.DataField',
             Value : tax_code,
             Label : 'TAX CODE',
+             ![@UI.Importance] : #High,
         },{
             $Type : 'UI.DataField',
             Value : description,
             Label : 'DESCRIPTION',
+             ![@UI.Importance] : #High,
         },{
             $Type : 'UI.DataField',
             Value : tax_per,
             Label : 'TAX%',
+             ![@UI.Importance] : #High,
         },
         {
             $Type : 'UI.DataFieldForAction',
@@ -622,6 +659,7 @@ annotate service.Unit_Measures with @(
             $Type : 'UI.DataField',
             Value : description,
             Label : 'DESCRIPTION',
+             ![@UI.Importance] : #High,
         },
         {
             $Type : 'UI.DataFieldForAction',
@@ -673,10 +711,12 @@ annotate service.Vendor_master with @(
             $Type : 'UI.DataField',
             Value : gstin_uin,
             Label : 'GST IN',
+            
         },{
             $Type : 'UI.DataField',
             Value : international_code,
             Label : 'INT TAX CODE',
+
         },{
             $Type : 'UI.DataField',
             Value : source_of_supply,
@@ -1273,6 +1313,7 @@ annotate service.Material_master with @(
                 $Type : 'UI.DataField',
                 Value : uom,
                 Label : 'Unit',
+                ![@UI.Hidden],
             },
             {
                 $Type : 'UI.DataField',
@@ -1397,16 +1438,29 @@ annotate service.Vendor_master with @(
                 $Type : 'UI.DataField',
                 Value : gstin_uin,
                 Label : 'GSTIN',
+                 ![@UI.Hidden] : {$edmJson: {$Eq: [
+            {$Path: 'gst_treatment'},
+            'overseas',
+        ]}}
             },
             {
                 $Type : 'UI.DataField',
                 Value : international_code,
                 Label : 'Int Tax code',
+                 ![@UI.Hidden] : {$edmJson: {$Ne: [
+            {$Path: 'gst_treatment'},
+            'overseas',
+        ]}}
+
             },
             {
                 $Type : 'UI.DataField',
                 Value : source_of_supply,
                 Label : 'Source of Supply',
+                 ![@UI.Hidden] : {$edmJson: {$Ne: [
+            {$Path: 'gst_treatment'},
+            'overseas',
+        ]}}
             },
             {
                 $Type : 'UI.DataField',
@@ -1804,23 +1858,6 @@ annotate service.Default_master with {
         },
         Common.ValueListWithFixedValues : true
 )};
-annotate service.Default_master with {
-    payment_method @UI.MultiLineText : false
-};
-annotate service.Default_master with {
-    payment_method @(Common.ValueList : {
-            $Type : 'Common.ValueListType',
-            CollectionPath : 'Payment_method',
-            Parameters : [
-                {
-                    $Type : 'Common.ValueListParameterInOut',
-                    LocalDataProperty : payment_method,
-                    ValueListProperty : 'table_key',
-                },
-            ],
-        },
-        Common.ValueListWithFixedValues : true
-)};
 annotate service.Vendor_master with {
     email @(Common.ValueList : {
             $Type : 'Common.ValueListType',
@@ -1857,3 +1894,38 @@ annotate service.Vendor_master with {
 )};
 
 
+annotate service.Default_master with {
+    payment_method @(Common.ValueList : {
+            $Type : 'Common.ValueListType',
+            CollectionPath : 'Payment_method',
+            Parameters : [
+                {
+                    $Type : 'Common.ValueListParameterInOut',
+                    LocalDataProperty : payment_method,
+                    ValueListProperty : 'table_key',
+                },
+            ],
+            Label : 'payment',
+        },
+        Common.ValueListWithFixedValues : true
+)};
+annotate service.Material_master with {
+    uom_description @(Common.ValueList : {
+            $Type : 'Common.ValueListType',
+            CollectionPath : 'Unit_Measures',
+            Parameters : [
+                {
+                    $Type : 'Common.ValueListParameterInOut',
+                    LocalDataProperty : uom_description,
+                    ValueListProperty : 'description',
+                },
+                {
+                    $Type : 'Common.ValueListParameterOut',
+                    ValueListProperty : 'code',
+                    LocalDataProperty : uom,
+                },
+            ],
+            Label : 'uom',
+        },
+        Common.ValueListWithFixedValues : true
+)};

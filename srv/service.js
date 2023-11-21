@@ -1119,7 +1119,7 @@ module.exports = cds.service.impl(async function () {
 
                 const resp3 = await c4re.get('/dropdown?drop_key=payment_method');
                 cds.tx(req).run(DELETE(Payment_method));
-                const pm = resp1.body;
+                const pm = resp3.body;
                 const pm_entries = [];
                 pm.forEach(space => {
                     pm_entries.push({
@@ -1712,12 +1712,30 @@ module.exports = cds.service.impl(async function () {
 
     //--------------------------------------------------------
     // new Dept_budget
+
+    this.before('POST', Dept_budget, async (req) => {
+        //-------
+        if (Array.isArray(req.data)) {
+            req.data.forEach(entry=>{
+                if(entry.valid_from > entry.valid_to){
+                    return req.error(400, 'Invalid Dates');
+                }
+            })
+           
+        }
+
+       else if (req.data.valid_from > req.data.valid_to) {
+            return req.error(400, 'Invalid Dates');
+        }
+        return req.data;
+         
+    });
+
     this.on('POST', Dept_budget, async (req) => {
         //-------
         if (Array.isArray(req.data)) {
             cds.tx(req).run(DELETE(Dept_budget));
             cds.tx(req).run(INSERT.into(Dept_budget).entries(req.data));
-            d_dept_budget = true;
             return req.data;
         }
 
@@ -2085,9 +2103,9 @@ module.exports = cds.service.impl(async function () {
                 const mm_entries = [];
                 mm.forEach(space => {
                     mm_entries.push({
-                        gl_account: ''+space.gl_account,
+                        gl_account: `${space.hsn_code || ' '}`,
                         gst_per: space.gst_per,
-                        hsn_code: space.hsn_code,
+                        hsn_code:  `${space.hsn_code || ' '}`,
                         material_name: space.material_name,
                         material_no: space.material_no,
                         unit_price: space.unit_price,
@@ -2255,7 +2273,7 @@ module.exports = cds.service.impl(async function () {
                         company_code: space.company_code,
                         country: ''+space.country,
                         description: space.description,
-                        tax_code: space.tax_code,
+                        tax_code: ''+space.tax_code,
                         tax_per: ''+space.tax_per
                     })
                 });
@@ -2513,6 +2531,59 @@ module.exports = cds.service.impl(async function () {
         } catch (err) {
             req.error(500, err.message);
         }
+    });
+
+
+    // validation for vendor master update 
+    this.before('UPDATE', Vendor_master, async (req) => {
+
+        if (Array.isArray(req.data)) {
+            const entries  = req.data;
+            entries.forEach(entry =>{
+                if (entry.gst_treat === 'registered_business') {
+                    // if (req.data.gstin_uin === null) req.error ` GST NO is mandatory`;
+                    if (req.data.gstin_uin === null) {
+                        req.error({
+                            message: 'GST NO is mandatory for "REGISTERED BUSINESS".',
+                            code: 'MANDATORY_GSTNO'
+                        });
+                    }
+                 else if (entry.gstin_uin.length != 15) {
+                    req.error({
+                        message: 'Enter a valied "GST NO".',
+                        code: 'MANDATORY_GSTNO'
+                    });
+                }
+            }
+                if (entry.gst_treat === 'overseas') {
+                    // if (req.data.gstin_uin === null) req.error ` GST NO is mandatory`;
+                    if (req.data.gstin_uin === null) {
+                        req.error({
+                            message: 'Int Tax Code is mandatory for "Overseas".',
+                            code: 'MANDATORY_INT_CODE'
+                        });
+                    }
+                }
+            }) 
+        }
+
+        const gst_treat = req.data.gst_treatment;
+
+        if (gst_treat === 'registered_business') {
+            // if (req.data.gstin_uin === null) req.error ` GST NO is mandatory`;
+            if (req.data.gstin_uin === null) {
+                req.error({
+                    message: 'GST NO is mandatory for "REGISTERED BUSINESS".',
+                    code: 'MANDATORY_GSTNO'
+                });
+            }
+        } else if (req.data.gstin_uin.length != 15) {
+            req.error({
+                message: 'Enter a valied "GST NO".',
+                code: 'MANDATORY_GSTNO'
+            });
+        }
+        return req.data;
     });
 
     // update Vendor_master

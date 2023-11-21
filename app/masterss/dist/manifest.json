@@ -624,25 +624,28 @@
                                     },
                                     "columns": {
                                         "DataField::material_no": {
-                                            "width": "14%"
+                                            "width": "10%"
                                         },
                                         "DataField::material_name": {
-                                            "width": "20%"
+                                            "width": "30%"
                                         },
                                         "DataField::hsn_code": {
-                                            "width": "13%"
+                                            "width": "10%"
                                         },
                                         "DataField::gst_per": {
-                                            "width": "13%"
+                                            "width": "10%"
                                         },
                                         "DataField::unit_price": {
-                                            "width": "13%"
+                                            "width": "10%"
                                         },
                                         "DataField::gl_account": {
-                                            "width": "13%"
+                                            "width": "14%"
                                         },
                                         "DataField::uom": {
                                             "width": "13%"
+                                        },
+                                        "DataField::uom_description": {
+                                            "width": "15%"
                                         }
                                     },
                                     "actions": {
