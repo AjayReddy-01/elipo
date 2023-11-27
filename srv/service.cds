@@ -1,31 +1,7 @@
 using Application from '../db/schema';
 
-
-
-service ApplicationService {
-    @cds.persistence.skip
-@odata.singleton
- entity UploadXl {
-        @Core.MediaType : 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
-        excel : LargeBinary;
-    };
-    
-    action save_Comp_code();
-    action save_Currency();
-    action save_plant();
-    action save_C_center();
-    action save_GL_Account();
-    action save_Int_order();
-    action save_Tax_code();
-    action save_UOM();
-    action save_jcode();
-    action save_D_master();
-    action save_dept();
-    action save_Dept_budget();
-    action save_M_master();
-    action save_Item_category();
-    action save_v_master();
-    
+service ApplicationService
+{
     annotate Company_code
     {
         description
@@ -72,8 +48,6 @@ service ApplicationService {
             @mandatory;
     }
 
-    
-
     annotate Internal_order
     {
         description
@@ -94,7 +68,8 @@ service ApplicationService {
 
     annotate Material_master
     {
-        hsn_code @assert.format : '[0-9]*';
+        hsn_code
+            @assert.format : '[0-9]*';
         material_name
             @mandatory;
         unit_price
@@ -121,8 +96,6 @@ service ApplicationService {
             @mandatory;
     }
 
-
-
     annotate Vendor_master
     {
         currency
@@ -141,6 +114,74 @@ service ApplicationService {
             @assert.format : '[0-9]*';
     }
 
+    @cds.persistence.skip
+    @odata.singleton
+    entity UploadXl
+    {
+        excel : LargeBinary
+            @Core.MediaType : 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet';
+    }
+
+    action save_Comp_code
+    (
+    );
+
+    action save_Currency
+    (
+    );
+
+    action save_plant
+    (
+    );
+
+    action save_C_center
+    (
+    );
+
+    action save_GL_Account
+    (
+    );
+
+    action save_Int_order
+    (
+    );
+
+    action save_Tax_code
+    (
+    );
+
+    action save_UOM
+    (
+    );
+
+    action save_jcode
+    (
+    );
+
+    action save_D_master
+    (
+    );
+
+    action save_dept
+    (
+    );
+
+    action save_Dept_budget
+    (
+    );
+
+    action save_M_master
+    (
+    );
+
+    action save_Item_category
+    (
+    );
+
+    action save_v_master
+    (
+    );
+
     @odata.draft.enabled
     entity Members as
         projection on Application.Members;
@@ -148,7 +189,6 @@ service ApplicationService {
     @odata.draft.enabled
     entity Company_code as
         projection on Application.Company_code;
-
 
     @odata.draft.enabled
     entity Cost_center as
@@ -164,8 +204,12 @@ service ApplicationService {
 
     @odata.draft.enabled
     entity Department as
-        projection on Application.Department actions{
-            action Set_Default();
+        projection on Application.Department
+        actions
+        {
+            action Set_Default
+            (
+            );
         };
 
     @readonly
@@ -251,5 +295,4 @@ service ApplicationService {
     @odata.draft.enabled
     entity Vendor_tds as
         projection on Application.Vendor_tds;
-        
 }

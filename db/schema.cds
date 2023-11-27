@@ -8,7 +8,6 @@ entity Members
     member_name : String;
     position : String;
     p_image : String;
-    // group : Association to one Groups on group.group_id = group_id;
 }
 
 entity Vendor_gst_treatment

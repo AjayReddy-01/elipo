@@ -41,11 +41,10 @@ module.exports = cds.service.impl(async function () {
 
     // handler for set default functionality in department
     this.on('Set_Default', async req => {
-
+        try {
         const results = await SELECT.from(Department).where({ sr_no: req.params[0].sr_no });
         var d_id = results[0].sr_no;
         var m_id = results[0].member_id;
-        try {
             const resp = await c4re.patch(`/default-department?sr_no=${d_id}&member_id=${m_id}`, body);
             c_read = true;
             return resp;
@@ -61,13 +60,12 @@ module.exports = cds.service.impl(async function () {
     var b_company_code = false;
     this.on('save_Comp_code', async req => {
         if (b_company_code) {
+            try {
             const c_code = await SELECT.from(Company_code);
-
             var body = {
                 codes: c_code,
                 master_id: "1"
             };
-            try {
                 const resp = await c4re.post('/master?import_entries=yes', body);
                 c_read = true;
                 b_company_code = false;
@@ -83,12 +81,12 @@ module.exports = cds.service.impl(async function () {
     var b_currency = false;
     this.on('save_Currency', async req => {
         if (b_currency) {
+            try {
             const c_code = await SELECT.from(Currency);
             var body = {
                 codes: c_code,
                 master_id: "12"
             };
-            try {
                 const resp = await c4re.post('/master?import_entries=yes', body);
                 c_read = true;
                 b_currency = false;
@@ -103,12 +101,12 @@ module.exports = cds.service.impl(async function () {
     var b_plant = false;
     this.on('save_plant', async req => {
         if (b_plant) {
+            try {
             const c_code = await SELECT.from(Plant);
             var body = {
                 codes: c_code,
                 master_id: "7"
             };
-            try {
                 const resp = await c4re.post('/master?import_entries=yes', body);
                 c_read = true;
                 b_plant = false;
@@ -123,12 +121,12 @@ module.exports = cds.service.impl(async function () {
     var b_cost_center = false;
     this.on('save_C_center', async req => {
         if (b_cost_center) {
+            try {
             const c_code = await SELECT.from(Cost_center);
             var body = {
                 codes: c_code,
                 master_id: "3"
             };
-            try {
                 const resp = await c4re.post('/master?import_entries=yes', body);
                 c_read = true;
                 b_cost_center = false;
@@ -143,12 +141,12 @@ module.exports = cds.service.impl(async function () {
     var b_gl_account = false;
     this.on('save_GL_Account', async req => {
         if (b_gl_account) {
+            try {
             const c_code = await SELECT.from(G_L_Account);
             var body = {
                 codes: c_code,
                 master_id: "2"
             };
-            try {
                 const resp = await c4re.post('/master?import_entries=yes', body);
                 c_read = true;
                 b_gl_account = false;
@@ -163,12 +161,12 @@ module.exports = cds.service.impl(async function () {
     var b_int_order = false;
     this.on('save_Int_order', async req => {
         if (b_int_order) {
+            try {
             const c_code = await SELECT.from(Internal_order);
             var body = {
                 codes: c_code,
                 master_id: "10"
             };
-            try {
                 const resp = await c4re.post('/master?import_entries=yes', body);
                 c_read = true;
                 b_int_order = false;
@@ -183,9 +181,9 @@ module.exports = cds.service.impl(async function () {
     var b_tax_code = false;
     this.on('save_Tax_code', async req => {
         if (b_tax_code) {
+            try {
             const c_code = await SELECT.from(Tax_code);
             var body = c_code;
-            try {
                 const resp = await c4re.post('/tax-code?import_entries=yes', body);
                 tc_read = true;
                 b_tax_code = false;
@@ -200,12 +198,12 @@ module.exports = cds.service.impl(async function () {
     var b_uom = false;
     this.on('save_UOM', async req => {
         if (b_uom) {
+            try {
             const c_code = await SELECT.from(Unit_Measures);
             var body = {
                 codes: c_code,
                 master_id: "6"
             };
-            try {
                 const resp = await c4re.post('/master?import_entries=yes', body);
                 um_read = true;
                 b_uom = false;
@@ -220,12 +218,12 @@ module.exports = cds.service.impl(async function () {
     var b_jcode = false;
     this.on('save_jcode', async req => {
         if (b_jcode) {
+            try {
             const c_code = await SELECT.from(Jurisdiction_code);
             var body = {
                 codes: c_code,
                 master_id: "0"
             };
-            try {
                 const resp = await c4re.post('/master?import_entries=yes', body);
                 c_read = true;
                 b_jcode = false;
@@ -265,6 +263,7 @@ module.exports = cds.service.impl(async function () {
     var d_department = false;
     this.on('save_dept', async req => {
         if (d_department) {
+            try {
             const c_code = await SELECT.from(Department);
             var body = [];
             c_code.forEach(space => {
@@ -280,8 +279,6 @@ module.exports = cds.service.impl(async function () {
                     member_name: space.member_name
                 })
             })
-
-            try {
                 const resp = await c4re.post('/department-master?import_entries=yes', body);
                 d_read = true;
                 d_department = false;
@@ -296,6 +293,7 @@ module.exports = cds.service.impl(async function () {
     var d_dept_budget = false;
     this.on('save_Dept_budget', async req => {
         if (d_dept_budget) {
+            try {
             const c_code = await SELECT.from(Dept_budget);
             const arr = [];
             c_code.forEach(space => {
@@ -309,12 +307,10 @@ module.exports = cds.service.impl(async function () {
                 })
             });
             const body = arr;
-            try {
                 const resp = await c4re.post('/departmental-budget-master?import_entries=yes', body);
                 db_read = true;
                 d_dept_budget = false;
                 return body;
-
             } catch (err) {
                 req.error(500, err.message);
             }
@@ -324,6 +320,7 @@ module.exports = cds.service.impl(async function () {
     var b_m_master = false;
     this.on('save_M_master', async req => {
         if (b_m_master) {
+            try {
             const c_code = await SELECT.from(Material_master);
             c_code.forEach(space => {
                 if (space.gl_account == null) { space.gl_account = ""; }
@@ -337,7 +334,6 @@ module.exports = cds.service.impl(async function () {
             })
 
             var body = c_code;
-            try {
                 const resp = await c4re.post('/material-master?import_entries=yes', body);
                 c_read = true;
                 b_m_master = false;
@@ -352,12 +348,12 @@ module.exports = cds.service.impl(async function () {
     var b_item_category = false;
     this.on('save_Item_category', async req => {
         if (b_item_category) {
+            try {
             const c_code = await SELECT.from(Item_category);
             var body = {
                 codes: c_code,
                 master_id: "11"
             };
-            try {
                 const resp = await c4re.post('/master?import_entries=yes', body);
                 c_read = true;
                 b_item_category = false;
@@ -372,6 +368,7 @@ module.exports = cds.service.impl(async function () {
     var b_vendor_master = false;
     this.on('save_v_master', async req => {
         if (b_vendor_master) {
+            try {
             const c_code = await SELECT.from(Vendor_master);
             var body = [];
             c_code.forEach(space => {
@@ -414,8 +411,6 @@ module.exports = cds.service.impl(async function () {
                 });
 
             })
-
-            try {
                 const resp = await c4re.post('/vendor-master?import_entries=yes', body);
                 vt_read = true;
                 b_vendor_master = false;
@@ -836,9 +831,15 @@ module.exports = cds.service.impl(async function () {
             master_id: "1"
         };
         try {
-            const createdEntity = await INSERT.into(Company_code).entries(req.data);
+            debugger
             const resp = await c4re.post('/master', body);
+            
+            if(resp.statuscode === 200){
+            const createdEntity = await INSERT.into(Company_code).entries(req.data);
             return req.data;
+            }else{
+                req.error('Internal Server Error');
+            }
         } catch (err) {
             req.error(500, err.message);
         }
@@ -2439,9 +2440,18 @@ module.exports = cds.service.impl(async function () {
             })
         }
         if (req.data.gst_treatment === 'registered_business') {
-            if (req.data.gstin_uin === null) req.error(400, `GST NO is mandatory for "REGISTERED BUSINESS".`)
-
-            else if (req.data.gstin_uin.length != 15) req.error(400, `Enter a valied "GST NO".`)
+            // if (req.data.gstin_uin === null) req.error(400, `GST NO is mandatory for "REGISTERED BUSINESS".`)
+            if (req.data.gstin_uin === null) {
+                debugger
+                req.error({
+                    message: 'GSTIN is mandatory for "REGISTERED BUSINESS".',
+                    code: 'MANDATORY_GSTNO',
+                    target: '/gstin_uin',
+                    additionalTargets: ["vendor_no"],
+                    ContentID:"0.0"
+                });
+            }
+            else if (req.data.gstin_uin.length != 15) req.error(400, `Enter a valied "GSTIN".`)
         }
         else if (req.data.gst_treatment === 'overseas') {
             if (req.data.gstin_uin === null) req.error(400, `Int Tax Code is mandatory for "Overseas".`)
