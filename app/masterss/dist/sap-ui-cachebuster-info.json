@@ -1,12 +1,12 @@
 {
-  "index.html": 1700020928739,
+  "Component-preload.js": 1701064732536,
+  "manifest.json": 1701064732211,
   "controller/ExtensionController.js": 1700453541316,
-  "manifest.json": 1700627211083,
   "Component.js": 1700020928739,
-  "Component-preload.js": 1700627211408,
-  "controller/ExtensionController-dbg.js": 1700453541316,
+  "i18n/i18n.properties": 1700020928739,
   "Component-dbg.js": 1700020928739,
+  "controller/ExtensionController-dbg.js": 1700453541316,
   "fragments/warning.fragment.xml": 1700020928739,
   "fragments/ExcelUploadDialog.fragment.xml": 1700020928739,
-  "i18n/i18n.properties": 1700020928739
+  "index.html": 1700020928739
 }
